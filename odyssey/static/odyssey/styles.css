@@ -222,7 +222,7 @@ i {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url(odyssey/static/nausica.jpg);
+    background-image: url("assets/nausica.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
