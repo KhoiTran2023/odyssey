@@ -34,7 +34,7 @@
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark shadow-5-strong">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'odyssey/assets/odysseyLogo.png' %}" width="135" height="60" alt="">
+                <img src="{% static 'odyssey/assets/odysseyLogo.png' %}" class="logo" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,14 +94,7 @@
                 <p class="font-italic text-muted">We, the Webmaster team from Chapter 1717, affirm that all the
                     templates and
                     themes that are used on this website are built on our own.</p>
-                <ul class="list-inline mt-4">
-                    <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i
-                                class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i
-                                class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i
-                                class="fa fa-instagram"></i></a></li>
-                </ul>
+
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4"></h6>
@@ -115,7 +108,7 @@
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">odyssey</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="#program" class="text-muted">Our Program</a></li>
+                    <li class="mb-2"><a href="{% url 'index' %}#program" class="text-muted">Our Program</a></li>
                     <li class="mb-2"><a href="{% url 'safety' %}" class="text-muted">Your Safety</a></li>
                     <li class="mb-2"><a href="{% url 'register' %}" class="text-muted">Book a Tour</a></li>
                     <li class="mb-2"><a href="{% url 'contact us' %}" class="text-muted">Contact Us</a></li>
