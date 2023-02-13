@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from odyssey.models import Passenger
 
 # google sheets api packages
 import gspread
@@ -43,7 +44,7 @@ def isEmptyData(row):
 
 def register_view(request):
     if request.method == "POST":
-        info_arr = []
+        """info_arr = []
         info_arr.append(request.POST["tourChoice"])
         info_arr.append(request.POST["firstName"])
         info_arr.append(request.POST["lastName"])
@@ -66,7 +67,9 @@ def register_view(request):
                 break
             row += 1
         for i in info_arr:
-            sheet.update_cell(row, info_arr.index(i)+1, i)
+            sheet.update_cell(row, info_arr.index(i)+1, i)"""
+        p = Passenger(tourChoice = request.POST["tourChoice"], firstName = request.POST["firstName"], lastName = request.POST["lastName"], birthday = request.POST["birthday"], firstNameBill = request.POST["firstNameBill"], lastNameBill = request.POST["lastNameBill"], inputAddress = request.POST["inputAddress"], inputAddress2 = request.POST.get('inputAddress2', ""), inputCity = request.POST["inputCity"], inputState = request.POST["inputState"], inputZip = request.POST["inputZip"], paymentMethod = request.POST["paymentMethod"], cc_name = request.POST["cc-name"], cc_number = request.POST["cc-number"], cc_expiration = request.POST["cc-expiration"], cc_cvv = request.POST["cc-cvv"])
+        p.save()
         messages.success(
             request, "Congratulations! You've successfully booked!")
         return HttpResponseRedirect(reverse('register'))
