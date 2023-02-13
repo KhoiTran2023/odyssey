@@ -5,24 +5,6 @@ from django.urls import reverse
 from django.contrib import messages
 from odyssey.models import Passenger
 
-# google sheets api packages
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-
-
-# Create your views here.
-
-# gc = gspread.service_account(filename='odyssey/static/odyssey/credentials.json')
-# sheet = gc.open_by_url("https://docs.google.com/spreadsheets/d/1GwTC2kRQuuncIsxlGKaz68ynEZmeo49tzSszGuxmD0E/")
-scope = [
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/drive',
-]
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    'odyssey/static/odyssey/credentials.json', scope)
-client = gspread.authorize(creds)
-sheet = client.open("tsa-webmaster").sheet1
-
 
 def index(request):
     return render(request, "odyssey/index.html")
@@ -44,30 +26,6 @@ def isEmptyData(row):
 
 def register_view(request):
     if request.method == "POST":
-        """info_arr = []
-        info_arr.append(request.POST["tourChoice"])
-        info_arr.append(request.POST["firstName"])
-        info_arr.append(request.POST["lastName"])
-        info_arr.append(request.POST["birthday"])
-        info_arr.append(request.POST["firstNameBill"])
-        info_arr.append(request.POST["lastNameBill"])
-        info_arr.append(request.POST["inputAddress"])
-        info_arr.append(request.POST["inputAddress2"])
-        info_arr.append(request.POST["inputCity"])
-        info_arr.append(request.POST["inputState"])
-        info_arr.append(request.POST["inputZip"])
-        info_arr.append(request.POST["paymentMethod"])
-        info_arr.append(request.POST["cc-name"])
-        info_arr.append(request.POST["cc-number"])
-        info_arr.append(request.POST["cc-expiration"])
-        info_arr.append(request.POST["cc-cvv"])
-        row = 1
-        while True:
-            if isEmptyData(row):
-                break
-            row += 1
-        for i in info_arr:
-            sheet.update_cell(row, info_arr.index(i)+1, i)"""
         p = Passenger(tourChoice = request.POST["tourChoice"], firstName = request.POST["firstName"], lastName = request.POST["lastName"], birthday = request.POST["birthday"], firstNameBill = request.POST["firstNameBill"], lastNameBill = request.POST["lastNameBill"], inputAddress = request.POST["inputAddress"], inputAddress2 = request.POST.get('inputAddress2', ""), inputCity = request.POST["inputCity"], inputState = request.POST["inputState"], inputZip = request.POST["inputZip"], paymentMethod = request.POST["paymentMethod"], cc_name = request.POST["cc-name"], cc_number = request.POST["cc-number"], cc_expiration = request.POST["cc-expiration"], cc_cvv = request.POST["cc-cvv"])
         p.save()
         messages.success(
