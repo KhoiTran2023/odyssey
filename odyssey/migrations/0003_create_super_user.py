@@ -3,7 +3,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('odyssey', '0002_alter_passenger_inputAddress2'),
+        ('odyssey', '0002_alter_passenger_inputaddress2'),
     ] # can also be emtpy if it's your first migration
 
     def generate_superuser(apps, schema_editor):
