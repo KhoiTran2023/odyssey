@@ -22,7 +22,7 @@ class Payment(models.Model):
     cc_number = models.CharField(max_length = 64)
     cc_expiration = models.CharField(max_length = 64)
     cc_cvv = models.CharField(max_length = 64)
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    account = models.ForeignKey(User, on_delete=models.CASCADE)
 
 STATUS_CHOICES = (
     ("pending", "pending"),
@@ -40,7 +40,7 @@ class Booking(models.Model):
     birthday = models.CharField(max_length = 16)
     socialSecurity = models.CharField(max_length = 20)
     payment = models.ForeignKey(Payment, on_delete = models.CASCADE)
-    account = models.ForeignKey(Account, on_delete = models.CASCADE)
+    account = models.ForeignKey(User, on_delete = models.CASCADE)
     status = models.CharField(
         max_length = 20,
         choices = STATUS_CHOICES,
