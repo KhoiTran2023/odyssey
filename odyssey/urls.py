@@ -13,4 +13,6 @@ urlpatterns = [
     path('create-account', views.create_account, name = "create_account"),
     path('log-in', views.log_in, name = "log_in"),
     path('log-out', views.log_out, name = "log_out"),
+
+    path('chatbot', views.chatbot, name = "chatbot")
 ]
