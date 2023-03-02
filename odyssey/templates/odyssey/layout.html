@@ -43,7 +43,7 @@
 
         //chatbot function
         const chatBody = document.querySelector(".chat-body");
-        const chatInput = document.querySelector("#chatMessage");
+        const chatInput = document.getElementById("chatMessage");
         const chatButton = document.querySelector("#sendButton");
 
         const addBotMessage = (message) => {
@@ -78,18 +78,17 @@
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "/chatbot", true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onload = () => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                addBotMessage(data.response);
-            } else {
-                console.error("Error:", xhr.statusText);
+            var xmlBody = "<message>" + message + "</message>";
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseXML.getElementsByTagName("message")[0].childNodes[0].nodeValue;
+            addBotMessage(response, "bot");
             }
             };
-            xhr.onerror = () => {
-            console.error("Error:", xhr.statusText);
-            };
-            xhr.send(JSON.stringify({ message:message }));
+            xhr.send(xmlBody);
+
+            // Clear the message input field
+            document.getElementById("chatMessage").value = "";
         }
         });
 
