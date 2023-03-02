@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inconsolata&family=Karla:wght@500&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins&display=swap');
 
 img {
     width: 100%;
 }
 
-.logo {
-    width: 20%;
+.navbar-brand {
+    width: 10%;
 }
 
 iframe {
@@ -15,7 +15,7 @@ iframe {
 
 .body,
 .card-body {
-    background: #f8f9fa;
+    background: #121212;
 }
 
 footer,
@@ -38,7 +38,7 @@ footer .text-uppercase {
 }
 
 h1 {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1000%;
     color: whitesmoke;
 }
@@ -54,7 +54,7 @@ h1 {
 }
 
 .subheading {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     margin-left: 20px;
     margin-right: 20px;
@@ -63,12 +63,13 @@ h1 {
 }
 
 .headingOrange {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 4%;
     margin-left: 10%;
     margin-right: 10%;
     font-size: 400%;
     text-align: center;
+    color: whitesmoke;
 }
 
 @media (max-width: 370px) {
@@ -88,25 +89,62 @@ h1 {
 }
 
 .text {
-    font-family: 'Inconsolata', monospace;
-    color: black;
+    font-family: 'Inter', sans-serif;
+    color: whitesmoke;
     margin-left: 20px;
     margin-right: 20px;
     font-size: 18px;
 }
 
 .centeredText {
-    font-family: 'Inconsolata', monospace;
-    color: black;
+    font-family: 'Inter', sans-serif;
+    color: whitesmoke;
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
 }
 
 nav {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
     position: fixed;
     transition: 1s;
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    opacity: 0;
+    content: '';
+    transition: all 0.4s;
+    height: 2px;
+    width: 100%;
+    background-color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+
+}
+
+.nav-item {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 .card-text {
@@ -372,6 +410,7 @@ i {
     text-align: center;
     font-size: 17px;
     font-family: 'Inconsolata', monospace;
+    color: whitesmoke;
 }
 
 @media (max-width: 400px) {
@@ -405,6 +444,7 @@ i {
     justify-items: center;
     font-family: 'Karla', sans-serif;
     font-size: 30px;
+    color: #fb8b24;
 }
 
 .labels2 {
@@ -413,6 +453,7 @@ i {
     justify-items: center;
     font-family: 'Karla', sans-serif;
     font-size: 30px;
+    color: #fb8b24;
 }
 
 @media (max-width: 1000px) {

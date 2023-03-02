@@ -1,10 +1,11 @@
-function scrollFunction() {
-    //if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-
-        //document.getElementById("navbar").style.background = "#14213D";
-    //} else {
-
-        //document.getElementById("navbar").style.background = "none";
-    //}
+var prevScrollpos = window.pageYOffset;
+function navbarScroll() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-70px";
+    }
+    prevScrollpos = currentScrollPos;
 }
 
