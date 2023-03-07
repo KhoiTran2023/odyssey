@@ -1,7 +1,34 @@
+function createBubble(message, user){
+    var d = new Date();
+    var chatLog = document.getElementById("chat-body");
+    var current_time = d.toLocaleTimeString();
+    if(user == "You")
+      {chatLog.innerHTML += "<p class = 'message-bubble user-message'><strong>"+user+"</strong> " + current_time + "<br>" + message + "</p>";}
+    else
+      {chatLog.innerHTML += "<p class = 'message-bubble bot-message'><strong>"+user+"</strong> " + current_time + "<br>" + message + "</p>";}
+    chatLog.scrollTop = chatLog.scrollHeight;
+    notBusy();
+}
+
+function pretendingToBeBusy()
+{
+    var target = document.getElementById("chat-header-status");
+    target.innerHTML = "typing...";
+}
+
+function notBusy()
+{
+    var target = document.getElementById("chat-header-status");
+    target.innerHTML = "Chat with us";
+}
+
+function autoFill(m) {
+  document.getElementById("chatMessage").value = m;
+}
+
 //chatbot function
 document.addEventListener("DOMContentLoaded", function() {
     // Get the chat log and message input elements
-    var chatLog = document.getElementById("chat-body");
     var messageInput = document.getElementById("chatMessage");
     
     // Add an event listener to the message input element
@@ -9,7 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // Check if the user has pressed the enter key
         if (event.keyCode === 13) {
         // Get the user's message
+        var messageInput = document.getElementById("chatMessage");
         var message = messageInput.value;
+        createBubble(message, "You")
         
         // Send the user's message to the server using an AJAX request
         var xhr = new XMLHttpRequest();
@@ -21,9 +50,10 @@ document.addEventListener("DOMContentLoaded", function() {
             var response = JSON.parse(xhr.responseText).message;
             
             // Display the bot's response in the chat log
-            chatLog.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
-            chatLog.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
-            
+            pretendingToBeBusy();
+            setTimeout(function () {
+                createBubble(response, "Odyssey InfoBot");
+              }, 2000);
             // Clear the message input field
             messageInput.value = "";
             }

@@ -10,11 +10,11 @@ from django.views.decorators.csrf import csrf_exempt
 import random
 import json
 
+
 #Page rendering
 
 def index(request):
     return render(request, "odyssey/index.html")
-
 
 def sources(request):
     return render(request, "odyssey/sources.html")
@@ -79,53 +79,35 @@ def log_out(request):
 @csrf_exempt
 def chatbot(request):
     if request.method == 'POST':
-        print(request.POST.get('message'))
         json_data = request.body.decode('utf-8')
         data = json.loads(json_data)
         message = data.get('message')
 
         # Generate a response
         response = generate_chatbot_response(message)
-
         # Return the bot's message as a JSON response
         return JsonResponse({'message': response})
     
     # If the request method is not POST, return an empty response
     return JsonResponse({})
-  
+
 def generate_chatbot_response(message):
-    # Define some initial responses
-    initial_responses = [
-        "Hello!",
-        "How can I assist you today?",
-        "I'm sorry, I don't understand. Could you please rephrase your question?",
-        "Please wait while I transfer you to a human representative."
-    ]
+    global conversation
     
-    # Define some responses based on the user's message
-    response_map = {
-        'hello': [
-            "Hi there!",
-            "Hello!",
-            "Howdy!"
-        ],
-        'how are you': [
-            "I'm doing well, thank you for asking!",
-            "I'm great, thanks for asking!",
-            "I'm fine, thanks for asking!"
-        ],
-        'goodbye': [
-            "Goodbye!",
-            "Bye!",
-            "Have a nice day!"
-        ]
-    }
-    
-    # Check if the user's message matches any of the response keys
-    for key in response_map:
-        if key in message.lower():
-            # If a match is found, return a random response from the corresponding list
-            return random.choice(response_map[key])
-    
-    # If no match is found, return a random initial response
-    return random.choice(initial_responses)
+    if message.lower() == "hi" or message.lower() == "hello":
+        response = "Hi there! How can I help you today?"
+    elif "about" in message.lower():
+        response = "Odyssey is more than just a trip, it is an experience you will never forget for a lifetime. Experience space from a beautiful itinerary, while in the relief that your safety is guaranteed in our safety training program on top of or extra measures. Welcome to the Future."
+    elif "info" in message.lower() or "tour" in message.lower() or "safety" in message.lower() or "program" in message.lower():
+        response = "You get to choose from three of the best on Earth flights! To learn more, scroll down on our home page to see our tours, their safety procedures, and how to book them!"
+    elif "order" in message.lower() or "status" in message.lower() or "book" in message.lower():
+        response = "To book, visit the <strong>Book a Tour</strong> link at the top, you must be logged in. To check on the status of your order, you must be logged in and go into your profile."
+    elif "cancel" in message.lower():
+        response = "To cancel your order, a representative must cancel it for you. Please visit <strong>Contact Us</strong> to ask us to cancel your order and include a reason why."
+    elif "thanks" in message.lower() or "thank you" in message.lower():
+        response = "You're welcome! Is there anything else I can assist you with?"
+    elif "more" in message.lower() or "help" in message.lower() or "human" in message.lower() or "representative" in message.lower():
+        response = "Unfortunately, due to volume, there are no agents available at this time. To have an Odysseynaut help you, visit <strong>Contact Us</strong> to submit a support ticket. Thank you for your patience."
+    else:
+        response = "I'm sorry, I didn't understand your message. How can I assist you?"
+    return response

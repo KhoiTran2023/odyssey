@@ -28,21 +28,6 @@
 
     <link type="text/css" href="{% static 'odyssey/styles.css' %}" rel="stylesheet">
     <script src="{% static 'odyssey/script.js'%}"></script>
-    <!--chat bot widget-->
-    <div id = "chat-container" class="chat-container">
-        <div style = "cursor:grab;" id = "chat-header" class="chat-header">Chat with us</div>
-        <div id = "chat-body" class="chat-body"></div>
-        <div class="chat-footer">
-          <input id = "chatMessage" type="text" placeholder="Type your message here" />
-        </div>
-      </div>
-      <script src = "{% static 'odyssey/chatbot.js' %}"></script>
-    <script>
-        //scroll function
-        window.onscroll = function () { scrollFunction(), navbarScroll() };
-
-    </script>
-    <!--navbar-->
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark shadow-5-strong">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
@@ -95,6 +80,34 @@
 
 <body>
     <!--start website (inherited to other webpages) -->
+        <!--chat bot widget-->
+        <button id = "chat-toggle"><img src = "{% static 'odyssey/assets/support.png' %}"></button>
+        <div id = "chat-container" class="chat-container">
+            <div style = "cursor:grab;" id = "chat-header" class="chat-header">
+                <div id = "chat-header-status">Chat with us</div>
+                <div id = "close-chat">&#10005</div>
+            </div>
+            <div id = "chat-body" class="chat-body">
+                Welcome to customer support! Try messages like:
+                <a onclick = "autoFill('about')">"about"</a>, 
+                <a onclick = "autoFill('info')">"info"</a>, or if you need more help, you can ask for a
+                <a onclick = "autoFill('human representative')">human representative.</a><br><br>
+            </div>
+            <div class="chat-footer">
+              <input id = "chatMessage" type="text" placeholder="Type your message here" />
+            </div>
+          </div>
+          <script src = "{% static 'odyssey/chatbot.js' %}"></script>
+        <script>
+            //scroll function
+            window.onscroll = function () { scrollFunction(), navbarScroll() };
+            // toggle button for the chatbot
+            var chatButton = document.getElementById("chat-toggle");
+            var closeChat = document.getElementById("close-chat");
+            chatButton.onclick = function() { toggleChat()}
+            closeChat.onclick = function() { toggleChat()}
+        </script>
+        <!--navbar-->
     <div class="body">
         {% block body %}
         {% endblock %}
