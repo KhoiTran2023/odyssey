@@ -29,8 +29,8 @@
     <link type="text/css" href="{% static 'odyssey/styles.css' %}" rel="stylesheet">
     <script src="{% static 'odyssey/script.js'%}"></script>
     <!--chat bot widget-->
-    <div class="chat-container">
-        <div class="chat-header">Chat with us</div>
+    <div id = "chat-container" class="chat-container">
+        <div style = "cursor:grab;" id = "chat-header" class="chat-header">Chat with us</div>
         <div id = "chat-body" class="chat-body"></div>
         <div class="chat-footer">
           <input id = "chatMessage" type="text" placeholder="Type your message here" />
