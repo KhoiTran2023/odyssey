@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Display the bot's response in the chat log
             pretendingToBeBusy();
             setTimeout(function () {
-                createBubble(response, "Odyssey InfoBot");
+                createBubble(response, "O-Bot");
               }, 2500);
             // Clear the message input field
             messageInput.value = "";
