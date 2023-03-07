@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             pretendingToBeBusy();
             setTimeout(function () {
                 createBubble(response, "Odyssey InfoBot");
-              }, 2000);
+              }, 2500);
             // Clear the message input field
             messageInput.value = "";
             }
