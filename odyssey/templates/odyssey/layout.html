@@ -31,67 +31,49 @@
     <!--chat bot widget-->
     <div class="chat-container">
         <div class="chat-header">Chat with us</div>
-        <div class="chat-body"></div>
+        <div id = "chat-body" class="chat-body"></div>
         <div class="chat-footer">
           <input id = "chatMessage" type="text" placeholder="Type your message here" />
-          <button id = "sendButton">Send</button>
         </div>
       </div>
-      <script>
+    <script>
         //scroll function
         window.onscroll = function () { scrollFunction(), navbarScroll() };
 
         //chatbot function
-        const chatBody = document.querySelector(".chat-body");
-        const chatInput = document.getElementById("chatMessage");
-        const chatButton = document.querySelector("#sendButton");
-
-        const addBotMessage = (message) => {
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("message", "bot-message");
-        const messageBubble = document.createElement("div");
-        messageBubble.classList.add("message-bubble");
-        messageBubble.textContent = message;
-        messageElement.appendChild(messageBubble);
-        chatBody.appendChild(messageElement);
-        chatBody.scrollTop = chatBody.scrollHeight;
-        };
-
-        const addUserMessage = (message) => {
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("message", "user-message");
-        const messageBubble = document.createElement("div");
-        messageBubble.classList.add("message-bubble");
-        messageBubble.textContent = message;
-        messageElement.appendChild(messageBubble);
-        chatBody.appendChild(messageElement);
-        chatBody.scrollTop = chatBody.scrollHeight;
-        };
-
-        chatButton.addEventListener("click", () => {
-        const message = chatInput.value;
-        if (message.trim() !== "") {
-            addUserMessage(message);
-            chatInput.value = "";
-
-            // Make a request to the Django backend to get a response from the chatbot
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "/chatbot", true);
+        document.addEventListener("DOMContentLoaded", function() {
+        // Get the chat log and message input elements
+        var chatLog = document.getElementById("chat-body");
+        var messageInput = document.getElementById("chatMessage");
+        
+        // Add an event listener to the message input element
+        messageInput.addEventListener("keydown", function(event) {
+            // Check if the user has pressed the enter key
+            if (event.keyCode === 13) {
+            // Get the user's message
+            var message = messageInput.value;
+            
+            // Send the user's message to the server using an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/chatbot/", true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            var xmlBody = "<message>" + message + "</message>";
             xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = xhr.responseXML.getElementsByTagName("message")[0].childNodes[0].nodeValue;
-            addBotMessage(response, "bot");
-            }
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                // Get the bot's response
+                var response = JSON.parse(xhr.responseText).message;
+                
+                // Display the bot's response in the chat log
+                chatLog.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+                chatLog.innerHTML += "<p><strong>Bot:</strong> " + response + "</p>";
+                
+                // Clear the message input field
+                messageInput.value = "";
+                }
             };
-            xhr.send(xmlBody);
-
-            // Clear the message input field
-            document.getElementById("chatMessage").value = "";
-        }
+            xhr.send(JSON.stringify({ 'message': message }));
+            }
         });
-
+        });
 
     </script>
     <!--navbar-->

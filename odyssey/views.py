@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import random
-import re
+import json
 
 #Page rendering
 
@@ -76,44 +76,56 @@ def log_out(request):
     HttpResponseRedirect(reverse("register"))
 
 #CHATBOT
-def process_message(message):
-    # Define a list of possible responses
-    responses = [
-        "I'm sorry, I didn't understand that.",
-        "Could you please rephrase that?",
-        "I'm not sure what you mean. Can you give me more information?",
-        "Thanks for your message! Our team will get back to you as soon as possible.",
-    ]
-
-    # Define regular expressions to search for keywords in the message
-    hello_pattern = re.compile(r"\bhello\b|\bhi\b|\bhey\b", re.IGNORECASE)
-    pricing_pattern = re.compile(r"\bpricing\b", re.IGNORECASE)
-    support_pattern = re.compile(r"\bsupport\b|\bhelp\b", re.IGNORECASE)
-
-    # Check if the message matches any of the patterns and generate a specific response
-    if hello_pattern.search(message):
-        response = "Hello! How can I assist you today?"
-    elif pricing_pattern.search(message):
-        response = "Please visit our pricing page at book a tour for more information."
-    elif support_pattern.search(message):
-        response = "You can contact our support team at the contact page for assistance."
-    else:
-        # Select a random response from the list
-        response = random.choice(responses)
-
-    return response
-
 @csrf_exempt
 def chatbot(request):
-    if request.method == "POST":
-        # Get the user message from the request body
-        message = request.POST.get("message", "bingbog")
-        print(message)
-        # Use a chatbot API or logic to generate a response
-        response = process_message(message)
+    if request.method == 'POST':
+        print(request.POST.get('message'))
+        json_data = request.body.decode('utf-8')
+        data = json.loads(json_data)
+        message = data.get('message')
 
-        # Return the response as a JSON object
-        return JsonResponse({"response": response})
+        # Generate a response
+        response = generate_chatbot_response(message)
 
-    # Return an empty response if the request method is not POST
+        # Return the bot's message as a JSON response
+        return JsonResponse({'message': response})
+    
+    # If the request method is not POST, return an empty response
     return JsonResponse({})
+  
+def generate_chatbot_response(message):
+    # Define some initial responses
+    initial_responses = [
+        "Hello!",
+        "How can I assist you today?",
+        "I'm sorry, I don't understand. Could you please rephrase your question?",
+        "Please wait while I transfer you to a human representative."
+    ]
+    
+    # Define some responses based on the user's message
+    response_map = {
+        'hello': [
+            "Hi there!",
+            "Hello!",
+            "Howdy!"
+        ],
+        'how are you': [
+            "I'm doing well, thank you for asking!",
+            "I'm great, thanks for asking!",
+            "I'm fine, thanks for asking!"
+        ],
+        'goodbye': [
+            "Goodbye!",
+            "Bye!",
+            "Have a nice day!"
+        ]
+    }
+    
+    # Check if the user's message matches any of the response keys
+    for key in response_map:
+        if key in message.lower():
+            # If a match is found, return a random response from the corresponding list
+            return random.choice(response_map[key])
+    
+    # If no match is found, return a random initial response
+    return random.choice(initial_responses)
