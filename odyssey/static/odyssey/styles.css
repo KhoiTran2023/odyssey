@@ -15,7 +15,7 @@ iframe {
 
 .body,
 .card-body {
-    background: #121212;
+    background: #121212; /*black suggestable? */
     color:whitesmoke;
 }
 
@@ -1069,19 +1069,6 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     animation-fill-mode:forwards;
 }
 
-@keyframes fly-in {
-    from {
-        right:-100px;
-    }
-    to {
-        right:50px;
-    }
-}
-
-.fly-in {
-    animation:fly-in 0.5s;
-    animation-fill-mode: forwards;
-}
 #chat-toggle {
     position:fixed;
     bottom:50px;
