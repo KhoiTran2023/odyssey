@@ -263,7 +263,7 @@ video {
 
 
 .parallaxGradient {
-    background-image: url("assets/homePage2.jpg");
+    background-image: url("assets/homePage.jpg");
     min-height: 600px;
     background-attachment: fixed;
     background-position: center;
@@ -1659,3 +1659,84 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 .card p {
     font-family: "Inter", sans-serif;
 }
+
+/*login form styling */
+#login-form {
+    background-image: url("assets/blueprint.jpg");
+    background-position: center;
+    background-size:cover;
+    position:fixed;
+    z-index:900;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:whitesmoke;
+    border-radius:8px;
+    padding:5%;
+    display:none;
+
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    grid-template-columns: -webkit-max-content auto;
+    grid-template-columns: max-content auto;
+    grid-template-rows: auto -webkit-max-content;
+    grid-template-rows: auto max-content;
+    padding:5%;
+}
+#login-form:before, #login-form:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+}
+#login-form:before {
+  grid-row: 1/2;
+  border-right: none;
+  border-bottom: none;
+}
+#login-form:after {
+  grid-row: 1/span 2;
+  border-left: none;
+}
+
+#login-status {
+    display:none;
+}
+
+.message-snack {
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: #333; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 200;
+    left: 50%; 
+    bottom:30px;
+
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }

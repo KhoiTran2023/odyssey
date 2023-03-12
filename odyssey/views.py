@@ -48,7 +48,15 @@ def register_view(request):
     messages.error(request, "Unsuccessful, try again.")
     return HttpResponseRedirect(reverse('register'))
 
+@csrf_exempt
+def fetch_url(request):
+    data = {'url1':reverse('index')}
+    return JsonResponse(data)
+
 #Authentication System
+def registration_view(request):
+    return render(request, "odyssey/registration.html")
+
 def create_account(request):
     if request.method == "POST":
         try:
@@ -62,18 +70,18 @@ def create_account(request):
             messages.error(request, "Unsuccessful, try again.")
 
 def log_in(request):
-    user = authenticate(request, username = request.POST["username"], password = request.POST["password"])
-    if user is not None:
-        login(request, user)
-        #ADD REDIRECT
-        HttpResponseRedirect(reverse("register"))
-    else:
-        messages.error(request, "Incorrect username/password, try again.")
-        HttpResponseRedirect(reverse("register"))
-
+    if request.method == "POST":
+        user = authenticate(request, username = request.POST.get('username'), password = request.POST.get('password'))
+        if user is not None:
+            login(request, user)
+            #ADD REDIRECT
+            return JsonResponse({'status':'success'})
+        return JsonResponse({'status':'error'}, status = 401)
+    
 def log_out(request):
     logout(request)
-    HttpResponseRedirect(reverse("register"))
+    messages.success(request,"logged out")
+    return render(request, "odyssey/registration.html")
 
 #CHATBOT
 @csrf_exempt
