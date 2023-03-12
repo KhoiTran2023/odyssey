@@ -82,6 +82,61 @@
     <!--start website (inherited to other webpages) -->
     <!--inserting login popup that is insiviible, only loadable when js file is loaded up-->
     {% if not user.is_authenticated %}
+    <script>
+        function toggleStage() {
+            const stageTwo = document.getElementById("create-stage-two");
+            const contBut = document.getElementById("continue-button");
+            const stageOne = document.getElementById("create-stage-one");
+            if(stageTwo.style.visibility != "visible")
+            {
+                stageTwo.style.visibility = "visible";
+                contBut.style.display = "none";
+                stageTwo.style.height = "auto";
+                stageOne.style.height = "0px";
+                stageOne.style.visibility = "hidden";
+            }
+            else {
+                stageTwo.style.visibility = "hidden";
+                contBut.style.display = "block";
+                stageTwo.style.height = "0px";
+                stageOne.style.height = "auto";
+                stageOne.style.visibility = "visible";
+            }
+        }
+    </script>
+    <form id="create-acc-form">
+        {% csrf_token %}
+        <h2>Create Account</h2>
+        <div id = "create-stage-one">
+            <label for="create-email">Email Address</label>
+            <input class = "form-control" type="text" id="create-email" name="create-email" required>
+            <label for="create-username">Username</label>
+            <input class = "form-control" type="text" id="create-username" name="create-username" required>
+            <label for="create-password">Password</label>
+            <input class = "form-control" type="password" id="create-password" name="create-password" required><br>
+            <button id = "continue-button" class = "btn btn-primary" onclick = "toggleStage()">Continue</button>
+        </div>
+        <div id = "create-stage-two">
+            <label for="create-user-residential-address">Residential Address</label>
+            <input class = "form-control" type="text" id="create-user-residential-address" name="create-user-residential-address" required>
+            <label for="create-user-birthday">Birthday</label>
+            <input class = "form-control" type="text" id="create-user-birthday" name="create-user-birthday" required>
+            <label for="create-user-social-security">Social Security (SSN)</label>
+            <input class = "form-control" type="password" id="create-user-social-security" name="create-user-social-security" required>
+            <label for="create-user-security-answer">Security Answer:<br>What was your childhood name?</label>
+            <input class = "form-control" type="text" id="create-user-security-answer" name="create-user-security-answer" required>
+            <br>
+            <button class = "btn btn-secondary" onclick = "toggleStage()">Back</button>
+            <button class = "btn btn-primary" type="submit">Create Account</button>
+        </div>
+        <br><br>
+        <div id="create-status" class = "alert"></div> 
+    </form>
+    <script>
+        function showCreate() {
+            document.getElementById("create-acc-form").style.display = "block";
+        }
+    </script>
     <form id="login-form">
         {% csrf_token %}
         <h2>Log In</h2>
@@ -90,7 +145,8 @@
         <label for="password">Password:</label>
         <input class = "form-control" type="password" id="password" name="password" required><br>
         <button class = "btn btn-primary" type="submit">Log In</button>
-        <br><br>
+        <p>No account? <a onclick = "showCreate()">Create Account</a></p>
+        <br>
         <div id="login-status" class = "alert"></div> 
     </form>
     {% endif %}

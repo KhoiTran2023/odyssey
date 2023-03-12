@@ -1682,24 +1682,48 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     grid-template-rows: auto max-content;
     padding:5%;
 }
-#login-form:before, #login-form:after {
+
+#create-acc-form {
+    /*background-image: url("assets/blueprint.jpg");
+    background-position: center;
+    background-size:cover;*/
+    background-color:#121212;
+    position:fixed;
+    z-index:901;
+    top: 50%;
+    left: 50%;
+    color:whitesmoke;
+    transform: translate(-50%, -50%);
+    border-radius:8px;
+    padding:5%;
+    display:none;
+
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    grid-template-columns: -webkit-max-content auto;
+    grid-template-columns: max-content auto;
+    grid-template-rows: auto -webkit-max-content;
+    grid-template-rows: auto max-content;
+    padding:5%;
+}
+
+#login-form:before, #login-form:after, #create-acc-form:before, #create-acc-form:after {
   content: "";
   display: block;
   width: 100%;
   height: 100%;
   border: 1px solid white;
 }
-#login-form:before {
+#login-form:before, #create-acc-form:before{
   grid-row: 1/2;
   border-right: none;
   border-bottom: none;
 }
-#login-form:after {
+#login-form:after, #create-acc-form:before {
   grid-row: 1/span 2;
   border-left: none;
 }
 
-#login-status {
+#login-status, #create-status {
     display:none;
 }
 
@@ -1739,4 +1763,14 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
   @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+  }
+
+  #create-stage-one {
+    height:auto;
+  }
+
+
+  #create-stage-two {
+    visibility:hidden;
+    height:0px;
   }

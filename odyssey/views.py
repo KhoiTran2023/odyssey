@@ -60,14 +60,16 @@ def registration_view(request):
 def create_account(request):
     if request.method == "POST":
         try:
-            user = User.objects.create_user(request.POST["username"],request.POST["emailAddress"], request.POST["password"])
-            user.first_name = request.POST["userFirstName"]
-            user.last_name = request.POST["userLastName"]
+            user = User.objects.create_user(request.POST.get("create-username"),request.POST.get("create-email"), request.POST.get("create-password"))
+            user.first_name = request.POST.get("create-user-first-name")
+            user.last_name = request.POST.get("create-user-last-name")
             user.save()
-            account = Account(user = user, residentialAddress = request.POST["userResidentialAddress"], birthday = request.POST["userBirthday"], socialSecurity = request.POST["userSocialSecurity"], securityAnswer1 = request.POST["userSecurityQuestion"])
+            account = Account(user = user, residentialAddress = request.POST.get("create-user-residential-address"), birthday = request.POST.get("create-user-birthday"), socialSecurity = request.POST.get("create-user-social-security"), securityAnswer1 = request.POST.get("create-user-security-answer"))
             account.save()
+            messages.success(request,"Account Created")
+            return render(request, "odyssey/registration.html")
         except:
-            messages.error(request, "Unsuccessful, try again.")
+            return JsonResponse({'status':'error'}, status = 401)
 
 def log_in(request):
     if request.method == "POST":

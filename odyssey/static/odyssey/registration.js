@@ -1,36 +1,25 @@
-const loginForm = document.querySelector('#login-form');
-const loginStatus = document.querySelector('#login-status');
-var indexUrl = "";
+const createForm = document.querySelector('#create-acc-form');
+const createStatus = document.querySelector('#create-status');
 
-loginForm.style.display = "block";
-
-fetch('/fetch_url/')
-        .then(response => response.json())
-        .then(data => {
-            indexUrl = data.url1;
-            console.log(indexUrl);
-        });
-
-loginForm.addEventListener('submit', (event) => {
+createForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const formData = new FormData(loginForm);
 
-    fetch('/log-in/', {
+    fetch('/create-account/', {
     method: 'POST',
     body: formData
     })
     .then(response => {
     if (response.status === 200) {
-        loginStatus.style.display = "inline-block";
-        loginStatus.classList.add("alert-success");
-        loginStatus.innerHTML = 'You are logged in.';
-        setTimeout(() => {window.location.replace(indexUrl); }, 2000);
+        createStatus.style.display = "inline-block";
+        createStatus.classList.add("alert-success");
+        createStatus.innerHTML = 'Created account successfully';
         //change this to redirect to profile center
     } else {
-        loginStatus.style.display = "inline-block";
-        loginStatus.classList.add("alert-info");
-        loginStatus.innerHTML = 'Incorrect username or password.';
+        createStatus.style.display = "inline-block";
+        createStatus.classList.add("alert-info");
+        createStatus.innerHTML = 'Error';
     }
     })
     .catch(error => {
