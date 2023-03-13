@@ -11,6 +11,7 @@ fetch('/fetch_url/')
             console.log(indexUrl);
         });
 
+//need to submit convert to function instead of addEventListener
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
