@@ -14,7 +14,7 @@ function navbarScroll() {
 
 //changes transparency and color of navbar on scroll
 function scrollFunction() {
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
         document.getElementById("navbar").style.backdropFilter = "blur(1rem)";
         document.getElementById("navbar").style.background = "hsl(0 0% 100% / 0.1)";
     } else {

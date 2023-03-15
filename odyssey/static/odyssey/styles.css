@@ -8,7 +8,6 @@ img {
     width: 100%;
 }
 
-
 iframe {
     aspect-ratio: 16 / 9;
     height: 50%;
@@ -53,7 +52,7 @@ footer .text-uppercase {
 .form-group {
     margin-left: 20px;
     margin-right: 20px;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -126,6 +125,15 @@ h1 {
     height: 3px;
     background: #fb8b24;
     margin: 20px auto;
+}
+
+.underlineSmallLeft {
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #fb8b24;
+    margin: 5px auto;
+    float: left;
 }
 
 .headingOrange {
@@ -223,13 +231,55 @@ nav {
 
 /* navbar end */
 
+/* tour cards bootstrap */
 .card-text {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inters', monospace;
 }
 
 .card-title {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
 }
+
+.whiteButton,
+.card-deck a {
+    border: none;
+    background: whitesmoke;
+    padding: 10px 30px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.whiteButton:hover,
+.card-deck a:hover {
+    background-color: #fb8b24;
+}
+
+.card-deck .card-body {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.card-deck .card:hover {
+    transform: scale(105%);
+}
+
+.card-deck .card {
+    border-radius: 20px;
+    transition: transform 330ms ease-in-out;
+}
+
+.card-deck .card-img-top {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
 
 
 @media only screen and (max-device-width: 1366px) {
@@ -263,7 +313,7 @@ video {
 
 
 .parallaxGradient {
-    background-image: url("assets/homePage.jpg");
+    background-image: url("assets/space.jpg");
     min-height: 600px;
     background-attachment: fixed;
     background-position: center;
@@ -283,7 +333,7 @@ video {
 }
 
 .parallaxTransition {
-    background-image: url("assets/cool-background.png");
+    background-image: url("assets/orbital.jpg");
     min-height: 200px;
     background-attachment: fixed;
     background-position: center;
@@ -292,7 +342,7 @@ video {
 }
 
 .parallaxVehicle {
-    background-image: url("assets/nausica2.jpg");
+    background-image: url("assets/launch2.jpg");
     min-height: 400px;
     background-attachment: fixed;
     background-position: center;
@@ -310,7 +360,7 @@ video {
 }
 
 .parallaxOrder {
-    background-image: url("assets/nausicaFlight.jpg");
+    background-image: url("assets/homePage2.jpg");
     min-height: 350px;
     background-attachment: fixed;
     background-position: center;
@@ -365,95 +415,6 @@ i {
 .form-control.shadow-0:focus {
     box-shadow: none;
 }
-
-/* GLASS MORPHISM */
-.cards {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-image: url("assets/nausica.jpg");
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    background-position: center center;
-
-
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-auto-rows: auto;
-    grid-gap: 1rem;
-}
-
-.wrapper .box {
-    width: 400px;
-    height: 300px;
-    border-radius: 15px;
-    transition: transform 500ms ease-out;
-    overflow: hidden;
-    color: #fff;
-    padding: 5%;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.box h2 {
-    margin-top: 10px;
-    font-size: 25px;
-    margin-bottom: 30px;
-    font-family: 'Karla', sans-serif;
-}
-
-.box p {
-    line-height: 1.9;
-    font-family: 'Inconsolata', monospace;
-
-}
-
-.box a {
-    border: none;
-    background: #fff;
-    padding: 15px 50px;
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 50px;
-    font-family: 'Karla', sans-serif;
-
-}
-
-.wrapper .box:before {
-    content: '';
-    background: rgba(255, 255, 255, 0.3);
-    width: 60%;
-    height: 100%;
-    top: 0%;
-    left: -125%;
-    transform: skew(45deg);
-    position: absolute;
-    animation-direction: left;
-    transition-duration: 500ms;
-}
-
-.wrapper .box:hover {
-    transform: translateY(-5%);
-}
-
-/* GLASS MORPHISM END*/
-
 
 /*testimonials*/
 .testicontainer {
@@ -1256,7 +1217,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 .chat-header {
     background-color: #fb8b24;
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1265,6 +1226,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    font-family: "Poppins", sans-serif;
 }
 
 .chat-footer {
@@ -1280,13 +1242,14 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     flex: 1;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
     padding: 15px;
     border-radius: 20px;
     margin-right: 10px;
     background-color: #404040;
     color: whitesmoke;
+    font-family: "Poppins", sans-serif;
 }
 
 .chat-body {
@@ -1295,6 +1258,8 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     overflow-y: auto;
     color: white;
     background-color: #242424;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
 }
 
 .chat-body a {
@@ -1315,6 +1280,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     color: whitesmoke;
     align-self: flex-end;
     margin-right: 10px;
+    font-family: "Poppins", sans-serif;
 }
 
 .bot-message {
@@ -1322,6 +1288,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     color: black;
     align-self: flex-start;
     margin-left: 20px;
+    font-family: "Poppins", sans-serif;
 }
 
 
@@ -1339,6 +1306,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 /* scrolling animation end */
 
+/*homepage tabs*/
 .tabs {
     left: 50%;
     transform: translateX(-50%);
@@ -1348,7 +1316,9 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     padding: 50px;
     padding-bottom: 80px;
     width: 70%;
+    /*originally 70%*/
     height: 400px;
+    /*originally 400px*/
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
     min-width: 240px;
@@ -1611,8 +1581,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     }
 }
 
-/*accordion*/
-
+/*faq accordion*/
 .collapsible-link::before {
     content: '';
     width: 14px;
@@ -1625,7 +1594,6 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     transition: all 0.3s;
 }
 
-/* Vertical line */
 .collapsible-link::after {
     content: '';
     width: 2px;
@@ -1664,113 +1632,648 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 #login-form {
     background-image: url("assets/blueprint.jpg");
     background-position: center;
-    background-size:cover;
-    position:fixed;
-    z-index:900;
+    background-size: cover;
+    position: fixed;
+    z-index: 900;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color:whitesmoke;
-    border-radius:8px;
-    padding:5%;
-    display:none;
+    color: whitesmoke;
+    border-radius: 8px;
+    padding: 5%;
+    display: none;
 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
     grid-template-columns: -webkit-max-content auto;
     grid-template-columns: max-content auto;
     grid-template-rows: auto -webkit-max-content;
     grid-template-rows: auto max-content;
-    padding:5%;
+    padding: 5%;
 }
 
 #create-acc-form {
     /*background-image: url("assets/blueprint.jpg");
     background-position: center;
     background-size:cover;*/
-    background-color:#121212;
-    position:fixed;
-    z-index:901;
+    background-color: #121212;
+    position: fixed;
+    z-index: 901;
     top: 50%;
     left: 50%;
-    color:whitesmoke;
+    color: whitesmoke;
     transform: translate(-50%, -50%);
-    border-radius:8px;
-    padding:5%;
-    display:none;
+    border-radius: 8px;
+    padding: 5%;
+    display: none;
 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
     grid-template-columns: -webkit-max-content auto;
     grid-template-columns: max-content auto;
     grid-template-rows: auto -webkit-max-content;
     grid-template-rows: auto max-content;
-    padding:5%;
+    padding: 5%;
 }
 
-#login-form:before, #login-form:after, #create-acc-form:before, #create-acc-form:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 1px solid white;
-}
-#login-form:before, #create-acc-form:before{
-  grid-row: 1/2;
-  border-right: none;
-  border-bottom: none;
-}
-#login-form:after, #create-acc-form:before {
-  grid-row: 1/span 2;
-  border-left: none;
+#login-form:before,
+#login-form:after,
+#create-acc-form:before,
+#create-acc-form:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
 }
 
-#login-status, #create-status {
-    display:none;
+#login-form:before,
+#create-acc-form:before {
+    grid-row: 1/2;
+    border-right: none;
+    border-bottom: none;
+}
+
+#login-form:after,
+#create-acc-form:before {
+    grid-row: 1/span 2;
+    border-left: none;
+}
+
+#login-status,
+#create-status {
+    display: none;
 }
 
 .message-snack {
-    min-width: 250px; 
-    margin-left: -125px; 
-    background-color: #333; 
-    color: #fff; 
-    text-align: center; 
-    border-radius: 2px; 
-    padding: 16px; 
-    position: fixed; 
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
     z-index: 200;
-    left: 50%; 
-    bottom:30px;
+    left: 50%;
+    bottom: 30px;
 
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation-fill-mode: forwards;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
-  
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
 
-  #create-stage-one {
-    height:auto;
-  }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+#create-stage-one {
+    height: auto;
+}
 
 
-  #create-stage-two {
-    visibility:hidden;
-    height:0px;
-  }
+#create-stage-two {
+    visibility: hidden;
+    height: 0px;
+}
+
+/*tour card deck */
+.card-deck {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+/*booking form*/
+
+.booking-container {
+    display: flex;
+    width: 100%;
+}
+
+.flex-child {
+    flex: 1;
+    margin: 5%;
+}
+
+.booking-container .container {
+    margin-bottom: 20%;
+}
+
+.section {
+    position: relative;
+    height: 100vh;
+}
+
+.section .section-center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#booking {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://i.imgur.com/ZaRYfYW.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#booking::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(47, 103, 177, 0.6);
+}
+
+.booking-form {
+    background-color: #292b2c;
+    padding: 30px 20px;
+    -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.booking-form .form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.booking-form .form-control {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    border: none;
+    height: 40px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #3e485c;
+    font-size: 14px;
+}
+
+.booking-form .form-control::-webkit-input-placeholder {
+    color: rgba(62, 72, 92, 0.3);
+}
+
+.booking-form .form-control:-ms-input-placeholder {
+    color: rgba(62, 72, 92, 0.3);
+}
+
+.booking-form .form-control::placeholder {
+    color: rgba(62, 72, 92, 0.3);
+}
+
+.booking-form input[type="date"].form-control:invalid {
+    color: rgba(62, 72, 92, 0.3);
+}
+
+.booking-form select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.booking-form select.form-control+.select-arrow {
+    position: absolute;
+    right: 0px;
+    bottom: 4px;
+    width: 32px;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+    pointer-events: none;
+    color: rgba(62, 72, 92, 0.3);
+    font-size: 14px;
+}
+
+.booking-form select.form-control+.select-arrow:after {
+    content: '\279C';
+    display: block;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.booking-form .form-label {
+    display: inline-block;
+    color: whitesmoke;
+    font-weight: 700;
+    margin-bottom: 6px;
+    margin-left: 7px;
+}
+
+.booking-form .submit-btn {
+    border: none;
+    background: #fff;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.booking-form .submit-btn:hover,
+.booking-form .submit-btn:focus {
+    opacity: 0.9;
+    background-color: #fb8b24;
+    color: whitesmoke;
+}
+
+.booking-cta {
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.booking-cta h1 {
+    font-size: 52px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+}
+
+.booking-cta p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-btn {
+    font-family: "Poppins", sans-serif;
+}
+
+
+/*booking carousel*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px;
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100px;
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1;
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+
+.carousel-item img {
+
+    width: 80%;
+}
+
+.tourDescription {
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.tourDescription h2 {
+    color: #fb8b24;
+}
+
+.booking-form h2,
+h4 {
+    font-family: "Poppins", sans-serif;
+    margin-left: 7px;
+}
+
+.booking-form .underlineSmallLeft {
+    margin-left: 7px;
+}
+
+/*booking page tabs*/
+.tabsTour {
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    padding: 50px;
+    padding-bottom: 80px;
+    width: 90%;
+    height: 850px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+    min-width: 240px;
+}
+
+.tabsTour input[name="tab-control"] {
+    display: none;
+}
+
+.tabsTour .bookingTitles li label {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fb8b24;
+}
+
+.tabsTour .bookingTitles {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.tabsTour .bookingTitles li {
+    box-sizing: border-box;
+    flex: 1;
+    width: 25%;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.tabsTour .bookingTitles li label {
+    transition: all 0.3s ease-in-out;
+    color: whitesmoke;
+    padding: 5px auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+}
+
+.tabsTour .bookingTitles li label br {
+    display: none;
+}
+
+.tabsTour .bookingTitles li label svg {
+    fill: whitesmoke;
+    height: 1.2em;
+    vertical-align: bottom;
+    margin-right: 0.2em;
+    transition: all 0.2s ease-in-out;
+}
+
+.tabsTour .bookingTitles li label:hover,
+.tabsTour .bookingTitles li label:focus,
+.tabsTour .bookingTitles li label:active {
+    outline: 0;
+    color: #bec5cf;
+}
+
+.tabsTour .bookingTitles li label:hover svg,
+.tabs .bookingTitles li label:focus svg,
+.tabs .bookingTitles li label:active svg {
+    fill: #bec5cf;
+}
+
+.tabsTour .slider {
+    position: relative;
+    width: 25%;
+    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+
+.tabsTour .slider .indicator {
+    position: relative;
+    width: 50px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 4px;
+    background: #fb8b24;
+    border-radius: 1px;
+}
+
+.tabsTour .content {
+    margin-top: 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+.tabsTour .content section {
+    display: none;
+    animation-name: content;
+    animation-direction: normal;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    line-height: 1.4;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+    cursor: default;
+    color: #fb8b24;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(1):checked~ul>li:nth-child(1)>label svg {
+    fill: #fb8b24;
+}
+
+@media (max-width: 600px) {
+    .tabsTour input[name="tab-control"]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(1):checked~.slider {
+    transform: translateX(0%);
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(1):checked~.content>section:nth-child(1) {
+    display: block;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+    cursor: default;
+    color: #fb8b24;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(2):checked~ul>li:nth-child(2)>label svg {
+    fill: #fb8b24;
+}
+
+@media (max-width: 600px) {
+    .tabsTour input[name="tab-control"]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(2):checked~.slider {
+    transform: translateX(100%);
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(2):checked~.content>section:nth-child(2) {
+    display: block;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(3):checked~ul>li:nth-child(3)>label {
+    cursor: default;
+    color: #fb8b24;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(3):checked~ul>li:nth-child(3)>label svg {
+    fill: #fb8b24;
+}
+
+@media (max-width: 600px) {
+    .tabsTour input[name="tab-control"]:nth-of-type(3):checked~ul>li:nth-child(3)>label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(3):checked~.slider {
+    transform: translateX(200%);
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(3):checked~.content>section:nth-child(3) {
+    display: block;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(4):checked~ul>li:nth-child(4)>label {
+    cursor: default;
+    color: #fb8b24;
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(4):checked~ul>li:nth-child(4)>label svg {
+    fill: #fb8b24;
+}
+
+@media (max-width: 600px) {
+    .tabsTour input[name="tab-control"]:nth-of-type(4):checked~ul>li:nth-child(4)>label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(4):checked~.slider {
+    transform: translateX(300%);
+}
+
+.tabsTour input[name="tab-control"]:nth-of-type(4):checked~.content>section:nth-child(4) {
+    display: block;
+}
+
+@keyframes content {
+    from {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@media (max-width: 1000px) {
+    .tabsTour .bookingTitles li label {
+        white-space: initial;
+    }
+
+    .tabsTour .bookingTitles li label br {
+        display: initial;
+    }
+
+    .tabsTour .bookingTitles li label svg {
+        height: 1.5em;
+    }
+}
+
+@media (max-width: 600px) {
+    .booking-container {
+        flex-direction: column;
+    }
+
+    .booking-container .container {
+        margin-bottom: 0%;
+    }
+
+    .tabsTour {
+        transform: translateX(-50%);
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        padding-bottom: 80px;
+        width: 90%;
+        height: 1650px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+        min-width: 240px;
+    }
+
+    .tabsTour .bookingTitles li label {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .tabsTour .bookingTitles li label span {
+        display: none;
+    }
+
+    .tabsTour .slider {
+        display: none;
+    }
+
+    .tabsTour .content {
+        margin-top: 20px;
+    }
+
+}

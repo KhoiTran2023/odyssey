@@ -11,13 +11,15 @@ import random
 import json
 
 
-#Page rendering
+# Page rendering
 
 def index(request):
     return render(request, "odyssey/index.html")
 
+
 def sources(request):
     return render(request, "odyssey/sources.html")
+
 
 def safety(request):
     return render(request, "odyssey/safety.html")
@@ -26,20 +28,23 @@ def safety(request):
 def contact_us(request):
     return render(request, "odyssey/contactus.html")
 
+
 def error(request):
     return render(request, "odyssey/error.html")
 
-#Tour booking
+# Tour booking
+
 
 def register(request):
     return render(request, "odyssey/order.html")
 
+
 def register_view(request):
     if request.method == "POST":
         try:
-            #NEEDS CHANGE
-            #p = Passenger(tourChoice = request.POST["tourChoice"], firstName = request.POST["firstName"], lastName = request.POST["lastName"], birthday = request.POST["birthday"], firstNameBill = request.POST["firstNameBill"], lastNameBill = request.POST["lastNameBill"], inputAddress = request.POST["inputAddress"], inputAddress2 = request.POST.get('inputAddress2', ""), inputCity = request.POST["inputCity"], inputState = request.POST["inputState"], inputZip = request.POST["inputZip"], paymentMethod = request.POST["paymentMethod"], cc_name = request.POST["cc-name"], cc_number = request.POST["cc-number"], cc_expiration = request.POST["cc-expiration"], cc_cvv = request.POST["cc-cvv"])
-            #p.save()
+            # NEEDS CHANGE
+            # p = Passenger(tourChoice = request.POST["tourChoice"], firstName = request.POST["firstName"], lastName = request.POST["lastName"], birthday = request.POST["birthday"], firstNameBill = request.POST["firstNameBill"], lastNameBill = request.POST["lastNameBill"], inputAddress = request.POST["inputAddress"], inputAddress2 = request.POST.get('inputAddress2', ""), inputCity = request.POST["inputCity"], inputState = request.POST["inputState"], inputZip = request.POST["inputZip"], paymentMethod = request.POST["paymentMethod"], cc_name = request.POST["cc-name"], cc_number = request.POST["cc-number"], cc_expiration = request.POST["cc-expiration"], cc_cvv = request.POST["cc-cvv"])
+            # p.save()
             messages.success(
                 request, "Congratulations! You've successfully booked!")
             return HttpResponseRedirect(reverse('register'))
@@ -48,44 +53,55 @@ def register_view(request):
     messages.error(request, "Unsuccessful, try again.")
     return HttpResponseRedirect(reverse('register'))
 
+
 @csrf_exempt
 def fetch_url(request):
-    data = {'url1':reverse('index')}
+    data = {'url1': reverse('index')}
     return JsonResponse(data)
 
-#Authentication System
+# Authentication System
+
+
 def registration_view(request):
     return render(request, "odyssey/registration.html")
+
 
 def create_account(request):
     if request.method == "POST":
         try:
-            user = User.objects.create_user(request.POST.get("create-username"),request.POST.get("create-email"), request.POST.get("create-password"))
+            user = User.objects.create_user(request.POST.get(
+                "create-username"), request.POST.get("create-email"), request.POST.get("create-password"))
             user.first_name = request.POST.get("create-user-first-name")
             user.last_name = request.POST.get("create-user-last-name")
             user.save()
-            account = Account(user = user, residentialAddress = request.POST.get("create-user-residential-address"), birthday = request.POST.get("create-user-birthday"), socialSecurity = request.POST.get("create-user-social-security"), securityAnswer1 = request.POST.get("create-user-security-answer"))
+            account = Account(user=user, residentialAddress=request.POST.get("create-user-residential-address"), birthday=request.POST.get("create-user-birthday"),
+                              socialSecurity=request.POST.get("create-user-social-security"), securityAnswer1=request.POST.get("create-user-security-answer"))
             account.save()
-            messages.success(request,"Account Created")
+            messages.success(request, "Account Created")
             return render(request, "odyssey/registration.html")
         except:
-            return JsonResponse({'status':'error'}, status = 401)
+            return JsonResponse({'status': 'error'}, status=401)
+
 
 def log_in(request):
     if request.method == "POST":
-        user = authenticate(request, username = request.POST.get('username'), password = request.POST.get('password'))
+        user = authenticate(request, username=request.POST.get(
+            'username'), password=request.POST.get('password'))
         if user is not None:
             login(request, user)
-            #ADD REDIRECT
-            return JsonResponse({'status':'success'})
-        return JsonResponse({'status':'error'}, status = 401)
-    
+            # ADD REDIRECT
+            return JsonResponse({'status': 'success'})
+        return JsonResponse({'status': 'error'}, status=401)
+
+
 def log_out(request):
     logout(request)
-    messages.success(request,"logged out")
+    messages.success(request, "logged out")
     return render(request, "odyssey/registration.html")
 
-#CHATBOT
+# CHATBOT
+
+
 @csrf_exempt
 def chatbot(request):
     if request.method == 'POST':
@@ -97,13 +113,14 @@ def chatbot(request):
         response = generate_chatbot_response(message)
         # Return the bot's message as a JSON response
         return JsonResponse({'message': response})
-    
+
     # If the request method is not POST, return an empty response
     return JsonResponse({})
 
+
 def generate_chatbot_response(message):
     global conversation
-    
+
     if message.lower() == "hi" or message.lower() == "hello":
         response = "Hi there! How can I help you today?"
     elif "about" in message.lower():
