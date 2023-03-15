@@ -1643,12 +1643,6 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     padding: 5%;
     display: none;
 
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-    grid-template-columns: -webkit-max-content auto;
-    grid-template-columns: max-content auto;
-    grid-template-rows: auto -webkit-max-content;
-    grid-template-rows: auto max-content;
-    padding: 5%;
 }
 
 #create-acc-form {
@@ -1666,41 +1660,22 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     padding: 5%;
     display: none;
 
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-    grid-template-columns: -webkit-max-content auto;
-    grid-template-columns: max-content auto;
-    grid-template-rows: auto -webkit-max-content;
-    grid-template-rows: auto max-content;
-    padding: 5%;
-}
-
-#login-form:before,
-#login-form:after,
-#create-acc-form:before,
-#create-acc-form:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 1px solid white;
-}
-
-#login-form:before,
-#create-acc-form:before {
-    grid-row: 1/2;
-    border-right: none;
-    border-bottom: none;
-}
-
-#login-form:after,
-#create-acc-form:before {
-    grid-row: 1/span 2;
-    border-left: none;
 }
 
 #login-status,
 #create-status {
     display: none;
+}
+
+.exit-form-button {
+    position:absolute;
+    top:2%;
+    right:2%;
+}
+
+.centeredText b {
+    color:#fb8b24;
+    cursor:pointer;
 }
 
 .message-snack {
@@ -2289,4 +2264,57 @@ h4 {
     border-radius: 25px;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+/*payment form popup*/
+#payment-form-popup {
+    z-index:900;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#14213D;
+    padding-top:5%;
+    padding-right:5%;
+    padding-left:5%;
+    padding-bottom:2%;
+    border-radius:8px;
+    display:none;
+}
+
+#add-payment-form {
+    z-index:900;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#14213D;
+    padding-top:5%;
+    padding-right:5%;
+    padding-left:5%;
+    padding-bottom:2%;
+    border-radius:8px;
+    display:none;
+    height:72%;
+    overflow-y: auto;
+}
+
+#add-new-payment {
+    transition:0.3s;
+}
+
+#add-new-payment:hover {
+    text-decoration: underline;
+    cursor:pointer;
+    padding:5px;
+}
+
+#btn-close,#btn-close-0 {
+    position:absolute;
+    top:2%;
+    right:2%;
+    background:transparent;
+    color:#aaa;
+    border:none;
+    outline:none;
 }

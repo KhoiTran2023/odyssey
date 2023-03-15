@@ -36,22 +36,35 @@ def error(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        payments = Payment.objects.filter(account = request.user)
+        return render(request, "odyssey/order.html", context = {
+            "payments":payments,
+        })
     return render(request, "odyssey/order.html")
 
+def add_payment(request):
+    if request.method == "POST":
+        #add functionality and json response
+        p = Payment(cardName = request.POST.get("cc-nn"),firstNameBill = request.POST.get("bfname"), lastNameBill = request.POST.get("blname"), inputAddress = request.POST.get("baddress"), inputCity = request.POST.get("bcity"), inputState = request.POST.get("bstate"), inputZip = request.POST.get("bzip"), paymentMethod = request.POST.get("paymentMethod"),cc_name = request.POST.get("cc-name"), cc_number = request.POST.get("cc-num"), cc_expiration = request.POST.get("cc-exp"), cc_cvv = request.POST.get("cc-cvv"), account = request.user)
+        p.save()
+        print(p)
+        messages.success(
+            request, "Payment Method Added")
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'})
 
 def register_view(request):
     if request.method == "POST":
-        try:
-            # NEEDS CHANGE
-            # p = Passenger(tourChoice = request.POST["tourChoice"], firstName = request.POST["firstName"], lastName = request.POST["lastName"], birthday = request.POST["birthday"], firstNameBill = request.POST["firstNameBill"], lastNameBill = request.POST["lastNameBill"], inputAddress = request.POST["inputAddress"], inputAddress2 = request.POST.get('inputAddress2', ""), inputCity = request.POST["inputCity"], inputState = request.POST["inputState"], inputZip = request.POST["inputZip"], paymentMethod = request.POST["paymentMethod"], cc_name = request.POST["cc-name"], cc_number = request.POST["cc-number"], cc_expiration = request.POST["cc-expiration"], cc_cvv = request.POST["cc-cvv"])
-            # p.save()
-            messages.success(
-                request, "Congratulations! You've successfully booked!")
-            return HttpResponseRedirect(reverse('register'))
-        except:
-            messages.error(request, "Unsuccessful, try again.")
-    messages.error(request, "Unsuccessful, try again.")
-    return HttpResponseRedirect(reverse('register'))
+        #add functionality and json response
+        paymentChoice = Payment.objects.get(account = request.user, cardName = request.POST.get("cardSelection"))
+        o = Order(tourChoice = request.POST.get("tourChoice"),departDate = request.POST.get("departDate"), ticketCount = request.POST.get("ticketCount"),account = request.user, payment = paymentChoice)
+        o.save()
+        print(o)
+        messages.success(
+            request, "Congratulations! You've successfully booked!")
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'})
 
 
 @csrf_exempt
@@ -68,19 +81,16 @@ def registration_view(request):
 
 def create_account(request):
     if request.method == "POST":
-        try:
-            user = User.objects.create_user(request.POST.get(
-                "create-username"), request.POST.get("create-email"), request.POST.get("create-password"))
-            user.first_name = request.POST.get("create-user-first-name")
-            user.last_name = request.POST.get("create-user-last-name")
-            user.save()
-            account = Account(user=user, residentialAddress=request.POST.get("create-user-residential-address"), birthday=request.POST.get("create-user-birthday"),
-                              socialSecurity=request.POST.get("create-user-social-security"), securityAnswer1=request.POST.get("create-user-security-answer"))
-            account.save()
-            messages.success(request, "Account Created")
-            return render(request, "odyssey/registration.html")
-        except:
-            return JsonResponse({'status': 'error'}, status=401)
+        user = User.objects.create_user(username = request.POST.get("create-username"), email = request.POST.get("create-email"), password = request.POST.get("create-password"))
+        user.first_name = request.POST.get("create-user-first-name")
+        user.last_name = request.POST.get("create-user-last-name")
+        user.save()
+        account = Account(user=user, residentialAddress=request.POST.get("create-user-residential-address"), birthday=request.POST.get("create-user-birthday"),socialSecurity=request.POST.get("create-user-social-security"), securityAnswer1=request.POST.get("create-user-security-answer"))
+        account.save()
+        login(request,user)
+        messages.success(request, "Account Created")
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status':'error'})
 
 
 def log_in(request):

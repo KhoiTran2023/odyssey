@@ -4,7 +4,7 @@ const createStatus = document.querySelector('#create-status');
 createForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(loginForm);
+    const formData = new FormData(createForm);
 
     fetch('/create-account/', {
     method: 'POST',
@@ -15,6 +15,7 @@ createForm.addEventListener('submit', (event) => {
         createStatus.style.display = "inline-block";
         createStatus.classList.add("alert-success");
         createStatus.innerHTML = 'Created account successfully';
+        location.reload();
         //change this to redirect to profile center
     } else {
         createStatus.style.display = "inline-block";

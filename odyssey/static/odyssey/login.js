@@ -2,7 +2,13 @@ const loginForm = document.querySelector('#login-form');
 const loginStatus = document.querySelector('#login-status');
 var indexUrl = "";
 
-loginForm.style.display = "block";
+function toggleLogin() {
+    loginForm.style.display = "block";
+}
+
+function toggleLoginOff() {
+    loginForm.style.display = "none";
+}
 
 fetch('/fetch_url/')
         .then(response => response.json())
@@ -26,7 +32,7 @@ loginForm.addEventListener('submit', (event) => {
         loginStatus.style.display = "inline-block";
         loginStatus.classList.add("alert-success");
         loginStatus.innerHTML = 'You are logged in.';
-        setTimeout(() => {window.location.replace(indexUrl); }, 2000);
+        setTimeout(() => {location.reload(); }, 2000);
         //change this to redirect to profile center
     } else {
         loginStatus.style.display = "inline-block";

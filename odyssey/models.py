@@ -9,11 +9,14 @@ class Account(models.Model):
     socialSecurity = models.CharField(max_length = 20)
     securityAnswer1 = models.CharField(max_length = 64)
 
+    def __str__(self):
+        return f"{self.user}"
+
 class Payment(models.Model):
+    cardName = models.CharField(max_length = 64)
     firstNameBill = models.CharField(max_length = 64)
     lastNameBill = models.CharField(max_length = 64)
     inputAddress = models.CharField(max_length = 64)
-    inputAddress2 = models.CharField(max_length = 64, null = True)
     inputCity = models.CharField(max_length = 64)
     inputState = models.CharField(max_length = 64)
     inputZip = models.CharField(max_length = 64)
@@ -24,21 +27,23 @@ class Payment(models.Model):
     cc_cvv = models.CharField(max_length = 64)
     account = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.cardName}"
+
 STATUS_CHOICES = (
     ("pending", "pending"),
     ("failed", "failed"),
     ("processed", "processed"),
     ("reviewing", "reviewing"),
     ("approved", "approved"),
+    ("redeemed", "redeemed"),
     ("completed", "completed"),
 )
 
-class Booking(models.Model):
+class Order(models.Model):
     tourChoice = models.CharField(max_length = 64)
-    passengerFirstName = models.CharField(max_length = 64)
-    passengerLastName = models.CharField(max_length = 64)
-    birthday = models.CharField(max_length = 16)
-    socialSecurity = models.CharField(max_length = 20)
+    departDate = models.CharField(max_length = 64)
+    ticketCount = models.IntegerField()
     payment = models.ForeignKey(Payment, on_delete = models.CASCADE)
     account = models.ForeignKey(User, on_delete = models.CASCADE)
     status = models.CharField(
@@ -48,4 +53,4 @@ class Booking(models.Model):
     )
 
     def __str__(self):
-        return f"{self.tourChoice}: {self.lastName}, {self.firstName}"
+        return f"{self.ticketCount} tickets to {self.tourChoice}"
