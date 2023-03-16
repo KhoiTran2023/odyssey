@@ -32,7 +32,7 @@
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark shadow-5-strong">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'odyssey/assets/odysseyLogo.png' %}" class="logo" alt="">
+                <img src="{% static 'odyssey/assets/odysseyLogo3.png' %}" class="logo" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-toggle"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,10 +105,10 @@
             }
         }
     </script>
-    <form id="create-acc-form" class = "form-holder">
+    <form id="create-acc-form" class="form-holder">
         {% csrf_token %}
         <h2>Create Account</h2>
-        <button class = "exit-form-button btn btn-secondary" onclick = "hideCreate()">&#10005;</button>
+        <button class="exit-form-button btn btn-secondary" onclick="hideCreate()">&#10005;</button>
         <div id="create-stage-one">
             <label for="create-email">Email Address</label>
             <input class="form-control" type="text" id="create-email" name="create-email" required>
@@ -149,8 +149,8 @@
             document.getElementById("create-acc-form").style.display = "none";
         }
     </script>
-    <form id="login-form" class = "form-holder">
-        <button class = "exit-form-button btn btn-secondary" onclick = "toggleLoginOff()">&#10005;</button>
+    <form id="login-form" class="form-holder">
+        <button class="exit-form-button btn btn-secondary" onclick="toggleLoginOff()">&#10005;</button>
         {% csrf_token %}
         <h2>Log In</h2>
         <label for="username">Username:</label>
@@ -158,7 +158,7 @@
         <label for="password">Password:</label>
         <input class="form-control" type="password" id="password" name="password" required><br>
         <button class="btn btn-primary" type="submit">Log In</button>
-        <p>No account? <a onclick="showCreate()" style = "color:#fb8b24;cursor:pointer;">Create Account</a></p>
+        <p>No account? <a onclick="showCreate()" style="color:#fb8b24;cursor:pointer;">Create Account</a></p>
         <div id="login-status" class="alert"></div>
     </form>
     {% endif %}
@@ -232,7 +232,7 @@
                     <input type="email" placeholder="Enter your email address" aria-describedby="button-addon1"
                         class="form-control border-0 shadow-0">
                     <div class="input-group-append">
-                        <button id="button-addon1" type="submit" class="btn btn-link"><i
+                        <button id="button-addon1" type="submit" class="btn btn-link border-light"><i
                                 class="fa fa-paper-plane"></i></button>
                     </div>
                 </div>
