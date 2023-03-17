@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Order)
 admin.site.register(Account)
 admin.site.register(Payment)
+admin.site.register(LoginPing)

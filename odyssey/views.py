@@ -88,6 +88,8 @@ def create_account(request):
         account = Account(user=user, residentialAddress=request.POST.get("create-user-residential-address"), birthday=request.POST.get("create-user-birthday"),socialSecurity=request.POST.get("create-user-social-security"), securityAnswer1=request.POST.get("create-user-security-answer"))
         account.save()
         login(request,user)
+        l = LoginPing(user = request.user, pingType = "Account Creation")
+        l.save()
         messages.success(request, "Account Created")
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status':'error'})
@@ -99,15 +101,19 @@ def log_in(request):
             'username'), password=request.POST.get('password'))
         if user is not None:
             login(request, user)
+            l = LoginPing(user = request.user, pingType = "Log In")
+            l.save()
             # ADD REDIRECT
             return JsonResponse({'status': 'success'})
         return JsonResponse({'status': 'error'}, status=401)
 
 
 def log_out(request):
+    l = LoginPing(user = request.user, pingType = "Logout")
+    l.save()
     logout(request)
     messages.success(request, "logged out")
-    return render(request, "odyssey/registration.html")
+    return HttpResponseRedirect(reverse("registration"))
 
 # CHATBOT
 

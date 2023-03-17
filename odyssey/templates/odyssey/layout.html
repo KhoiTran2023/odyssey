@@ -81,6 +81,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <div id = "blur-back"></div>
     <!--start website (inherited to other webpages) -->
     <!--inserting login popup that is insiviible, only loadable when js file is loaded up-->
     {% if not user.is_authenticated %}
@@ -136,19 +137,10 @@
                 required>
             <br>
             <button class="btn btn-secondary" onclick="toggleStage()">Back</button>
-            <button class="btn btn-primary" type="submit">Create Account</button>
+            <button class="btn btn-primary" type="button" onclick = "submitCreate()">Create Account</button>
         </div>
         <div id="create-status" class="alert"></div>
     </form>
-    <script>
-        function showCreate() {
-            document.getElementById("create-acc-form").style.display = "block";
-        }
-
-        function hideCreate() {
-            document.getElementById("create-acc-form").style.display = "none";
-        }
-    </script>
     <form id="login-form" class="form-holder">
         <button class="exit-form-button btn btn-secondary" onclick="toggleLoginOff()">&#10005;</button>
         {% csrf_token %}
@@ -161,6 +153,20 @@
         <p>No account? <a onclick="showCreate()" style="color:#fb8b24;cursor:pointer;">Create Account</a></p>
         <div id="login-status" class="alert"></div>
     </form>
+    <script>
+        function showCreate() {
+            document.getElementById("blur-back").style.display = "block";
+            document.getElementById("create-acc-form").style.display = "block";
+        }
+
+        function hideCreate() {
+            if(document.getElementById("blur-back").style.display != "none"&&document.getElementById("login-form").style.display != "block")
+            {
+                document.getElementById("blur-back").style.display = "none";
+            }
+            document.getElementById("create-acc-form").style.display = "none";
+        }
+    </script>
     {% endif %}
     <!--chat bot widget-->
     <button id="chat-toggle"><img src="{% static 'odyssey/assets/support.png' %}"></button>

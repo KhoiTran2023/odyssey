@@ -1,8 +1,7 @@
 const createForm = document.querySelector('#create-acc-form');
 const createStatus = document.querySelector('#create-status');
 
-createForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+function submitCreate() {
 
     const formData = new FormData(createForm);
 
@@ -26,4 +25,4 @@ createForm.addEventListener('submit', (event) => {
     .catch(error => {
     console.error(error);
     });
-});
+};

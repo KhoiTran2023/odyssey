@@ -1638,7 +1638,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     background-position: center;
     background-size: cover;
     position: fixed;
-    z-index: 902;
+    z-index: 901;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1655,7 +1655,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     background-size:cover;*/
     background-color: #121212;
     position: fixed;
-    z-index: 901;
+    z-index: 902;
     top: 50%;
     left: 50%;
     color: whitesmoke;
@@ -2288,7 +2288,7 @@ h4 {
 
 /*payment form popup*/
 #payment-form-popup {
-    z-index: 900;
+    z-index: 905;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2303,7 +2303,7 @@ h4 {
 }
 
 #add-payment-form {
-    z-index: 901;
+    z-index: 905;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2338,4 +2338,18 @@ h4 {
     color: #aaa;
     border: none;
     outline: none;
+}
+
+/*blur background*/
+#blur-back {
+    z-index:700;
+    background-color:black;
+    opacity:70%;
+    position:fixed;
+    right:0px;
+    top:0px;
+    height:100%;
+    width:100%;
+    display:none;
+    transition:1s;
 }

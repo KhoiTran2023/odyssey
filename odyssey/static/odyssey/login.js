@@ -1,13 +1,16 @@
 const loginForm = document.querySelector('#login-form');
 const loginStatus = document.querySelector('#login-status');
+const blurBack = document.getElementById("blur-back");
 var indexUrl = "";
 
 function toggleLogin() {
     loginForm.style.display = "block";
+    blurBack.style.display = "block";
 }
 
 function toggleLoginOff() {
     loginForm.style.display = "none";
+    blurBack.style.display = " none";
 }
 
 fetch('/fetch_url/')
