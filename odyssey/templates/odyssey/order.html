@@ -358,14 +358,14 @@
                                     <span class="form-label">Select Saved Payment:</span>
                                     <select class="form-control" name="cardSelection">
                                         {% if payments %}
-                                        {% for payment in payments %}
-                                        <option value="{{payment.cardName}}">{{payment.cardName}}</option>
-                                        {% endfor %}
+                                            {% for payment in payments %}
+                                                <option value="{{payment.cardName}}">{{payment.cardName}}</option>
+                                            {% endfor %}
+                                        {% endif %}
                                     </select>
                                     <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
                                     <br>
                                     <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
-                                    {% endif %}
                                 </div>
                             </form>
 

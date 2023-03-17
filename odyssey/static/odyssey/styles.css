@@ -1638,7 +1638,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     background-position: center;
     background-size: cover;
     position: fixed;
-    z-index: 900;
+    z-index: 902;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -2303,7 +2303,7 @@ h4 {
 }
 
 #add-payment-form {
-    z-index: 900;
+    z-index: 901;
     position: fixed;
     top: 50%;
     left: 50%;

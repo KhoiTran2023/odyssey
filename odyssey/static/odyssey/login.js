@@ -18,8 +18,7 @@ fetch('/fetch_url/')
         });
 
 //need to submit convert to function instead of addEventListener
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+function  submitLogin() {
 
     const formData = new FormData(loginForm);
 
@@ -31,7 +30,7 @@ loginForm.addEventListener('submit', (event) => {
     if (response.status === 200) {
         loginStatus.style.display = "inline-block";
         loginStatus.classList.add("alert-success");
-        loginStatus.innerHTML = 'You are logged in.';
+        loginStatus.innerHTML = 'You are logged in. Redirecting...';
         setTimeout(() => {location.reload(); }, 2000);
         //change this to redirect to profile center
     } else {
@@ -43,4 +42,4 @@ loginForm.addEventListener('submit', (event) => {
     .catch(error => {
     console.error(error);
     });
-});
+};
