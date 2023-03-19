@@ -8,6 +8,12 @@
 <script src="{% static 'odyssey/login.js' %}"></script>
 <script src="{% static 'odyssey/registration.js' %}"></script>
 <div class="parallaxOrder">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+        id="downIndicator" class="fadeOut">
+        <path
+            d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.06 11.27L12.53 14.8C12.38 14.95 12.19 15.02 12 15.02C11.81 15.02 11.62 14.95 11.47 14.8L7.94 11.27C7.65 10.98 7.65 10.5 7.94 10.21C8.23 9.92 8.71 9.92 9 10.21L12 13.21L15 10.21C15.29 9.92 15.77 9.92 16.06 10.21C16.35 10.5 16.35 10.97 16.06 11.27Z"
+            fill="#fb8b24" />
+    </svg>
 </div>
 
 <br>
@@ -353,16 +359,18 @@
                                     <input value="Orbital Space Tour" name="tourChoice" style="display:none;" />
                                     <button id="btn-close" type="button" onclick="toggleSavedToPay()">&#65343;</button>
                                     <h2>Make your deposit</h2>
-                                    <p>$10,000 due today and billed completely after redeemed.</p>
+                                    <div class="underlineSmallLeft"></div>
                                     <br>
+                                    <p>$10,000 due today and billed completely after redeemed.</p>
                                     <span class="form-label">Select Saved Payment:</span>
                                     <select class="form-control" name="cardSelection">
                                         {% if payments %}
-                                            {% for payment in payments %}
-                                                <option value="{{payment.cardName}}">{{payment.cardName}}</option>
-                                            {% endfor %}
+                                        {% for payment in payments %}
+                                        <option value="{{payment.cardName}}">{{payment.cardName}}</option>
+                                        {% endfor %}
                                         {% endif %}
                                     </select>
+                                    <br>
                                     <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
                                     <br>
                                     <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
@@ -372,8 +380,11 @@
                             <form id="add-payment-form">
                                 {% csrf_token %}
                                 <h2>Add A New Payment</h2>
+                                <div class="underlineSmallLeft"></div>
+                                <br>
                                 <button id="btn-close-0" type="button" onclick="toggleSavedToPay()">&#65343;</button>
                                 <h4>Billing Details</h4>
+                                <br>
                                 <div>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -466,6 +477,7 @@
                                         </div>
                                     </div>
                                     <h4>Payment Information</h4>
+                                    <br>
                                     <div class="form-group">
                                         <label class="form-label" for="cc-nn">Card Nickname</label>
                                         <input type="text" name="cc-nn" class="form-control" />
@@ -515,6 +527,20 @@
                             {% endif %}
 
                             <script src="{% static 'odyssey/payments.js' %}"></script>
+                        </div>
+                    </div>
+
+                    <div class="container flex-child">
+                        <div class="tourHighlights">
+                            <h2><b>Tour Highlights</b></h2>
+                            <p><b>01 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
+                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
+                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
+                            <p><b>02 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
+                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
+                                voluptate mollitia velit molestias quia eos?</p>
                         </div>
                     </div>
                 </div>
@@ -651,6 +677,20 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    <div class="container flex-child">
+                        <div class="tourHighlights">
+                            <h2><b>Tour Highlights</b></h2>
+                            <p><b>01 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
+                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
+                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
+                            <p><b>02 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
+                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
+                                voluptate mollitia velit molestias quia eos?</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -779,6 +819,20 @@
                             <p class="centeredText">Don't have an account? Sign up <b onclick="showCreate()">here.</b>
                             </p>
                             {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="container flex-child">
+                        <div class="tourHighlights">
+                            <h2><b>Tour Highlights</b></h2>
+                            <p><b>01 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
+                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
+                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
+                            <p><b>02 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
+                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
+                                voluptate mollitia velit molestias quia eos?</p>
                         </div>
                     </div>
                 </div>
@@ -915,6 +969,21 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    <div class="container flex-child">
+                        <div class="tourHighlights">
+                            <h2><b>Tour Highlights</b></h2>
+                            <p><b>01 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
+                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
+                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
+                            <p><b>02 | Lorem ipsum dolor</b></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
+                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
+                                voluptate mollitia velit molestias quia eos?</p>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </div>

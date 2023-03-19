@@ -372,6 +372,33 @@ video {
     background-size: cover;
 }
 
+#downIndicator {
+    margin-top: 280px;
+    margin-left: 48%;
+    animation: bounce 2s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-12px);
+    }
+}
+
 .center {
     text-align: center;
 }
@@ -455,13 +482,37 @@ i {
 
 
 .card-thumb {
-    width: 70%;
+    width: 65%;
     height: 300px;
     overflow: hidden;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     position: relative;
-    background-image: url("assets/johndoe.jpg");
+    background-image: url("assets/johndoe2.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+.card-thumb2 {
+    width: 65%;
+    height: 300px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    background-image: url("assets/neilarmstrong.PNG");
+    background-size: cover;
+    background-position: center center;
+}
+
+.card-thumb3 {
+    width: 65%;
+    height: 300px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    background-image: url("assets/janedoe4.png");
     background-size: cover;
     background-position: center center;
 }
@@ -968,7 +1019,7 @@ input:checked+.dot-info span {
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -978,7 +1029,7 @@ input:checked+.dot-info span {
     transform: rotateZ(-45deg);
     width: 70px;
     text-indent: -10px;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 #timeline-descriptions-wrapper {
@@ -1311,6 +1362,21 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 /* scrolling animation end */
 
 /*homepage tabs*/
+.nausica-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.nausica-container .flex-child {
+    flex: 1 1 300px;
+}
+
+.nausica-container .container {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .tabs {
     left: 50%;
     transform: translateX(-50%);
@@ -1634,7 +1700,10 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 /*login form styling */
 #login-form {
-    background-image: url("assets/blueprint.jpg");
+    /*background-image: url("assets/blueprint.jpg");*/
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     background-position: center;
     background-size: cover;
     position: fixed;
@@ -1643,27 +1712,87 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     left: 50%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
-    border-radius: 8px;
-    padding: 5%;
+    border-radius: 25px;
+    padding: 4%;
+    padding-bottom: 2%;
     display: none;
+    font-family: "Poppins", sans-serif;
+}
 
+#login-form .login-btn,
+#continue-button,
+#back-btn {
+    border: none;
+    background: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    color: #121212;
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+#login-form .login-btn:hover,
+#login-form .login-btn:focus,
+#continue-button:hover,
+#continue-button:focus {
+    opacity: 0.9;
+    background-color: #fb8b24;
+    color: whitesmoke;
+}
+
+#login-form a {
+    color: #fb8b24;
+}
+
+#login-form a:hover,
+#login-form a:focus {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#login-form .form-control {
+    margin-bottom: 8%;
 }
 
 #create-acc-form {
     /*background-image: url("assets/blueprint.jpg");
     background-position: center;
     background-size:cover;*/
-    background-color: #121212;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     position: fixed;
     z-index: 902;
     top: 50%;
     left: 50%;
     color: whitesmoke;
     transform: translate(-50%, -50%);
-    border-radius: 8px;
-    padding: 5%;
+    border-radius: 20px;
+    padding: 3%;
     display: none;
+    font-family: "Poppins", sans-serif;
+}
 
+#create-btn {
+    border: none;
+    background: #fb8b24;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    color: whitesmoke;
+    margin-top: 5%;
+    margin-bottom: 8%;
 }
 
 #login-status,
@@ -1673,8 +1802,11 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 .exit-form-button {
     position: absolute;
-    top: 2%;
-    right: 2%;
+    top: 2.5%;
+    right: 4%;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
 }
 
 .centeredText b {
@@ -1768,15 +1900,15 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 .booking-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 .booking-container .flex-child {
-    flex: 1;
+    flex: 1 1 500px;
 }
 
 .booking-container .container {
-    margin-bottom: 20%;
     margin-top: 2%;
 }
 
@@ -1987,8 +2119,14 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     margin-right: 10%;
 }
 
-.tourDescription h2 {
+.tourDescription h2,
+.tourHighlights h2 {
     color: #fb8b24;
+}
+
+.tourHighlights {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .booking-form h2,
@@ -2011,7 +2149,7 @@ h4 {
     padding: 50px;
     padding-bottom: 80px;
     width: 90%;
-    height: 850px;
+    height: 1150px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
     min-width: 240px;
@@ -2240,7 +2378,7 @@ h4 {
     }
 
     .booking-container .container {
-        margin-bottom: 0%;
+        margin-bottom: 15%;
     }
 
     .tabsTour {
@@ -2251,7 +2389,7 @@ h4 {
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
-        height: 1650px;
+        height: 2250px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         border-radius: 5px;
         min-width: 240px;
@@ -2342,14 +2480,14 @@ h4 {
 
 /*blur background*/
 #blur-back {
-    z-index:700;
-    background-color:black;
-    opacity:70%;
-    position:fixed;
-    right:0px;
-    top:0px;
-    height:100%;
-    width:100%;
-    display:none;
-    transition:1s;
+    z-index: 700;
+    background-color: black;
+    opacity: 70%;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: none;
+    transition: 1s;
 }

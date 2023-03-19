@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="icon" href="{% static 'odyssey/assets/odysseyLogo.png' %}">
+    <link rel="icon" href="{% static 'odyssey/assets/odysseyLogo16.png' %}">
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -68,9 +68,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         {% if not user.is_authenticated %}
-                            <a class="nav-link" href="{% url 'registration' %}">Login</a>
+                        <a class="nav-link" href="{% url 'registration' %}">Login</a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'log_out' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'log_out' %}">Logout</a>
                         {% endif %}
                     </li>
                 </ul>
@@ -81,7 +81,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="0">
-    <div id = "blur-back"></div>
+    <div id="blur-back"></div>
     <!--start website (inherited to other webpages) -->
     <!--inserting login popup that is insiviible, only loadable when js file is loaded up-->
     {% if not user.is_authenticated %}
@@ -106,38 +106,102 @@
             }
         }
     </script>
-    <form id="create-acc-form" class="form-holder">
+
+    <form id="create-acc-form">
         {% csrf_token %}
         <h2>Create Account</h2>
+        <div class="underlineSmallLeft"></div>
+        <br>
         <button class="exit-form-button btn btn-secondary" onclick="hideCreate()">&#10005;</button>
         <div id="create-stage-one">
-            <label for="create-email">Email Address</label>
-            <input class="form-control" type="text" id="create-email" name="create-email" required>
-            <label for="create-user-first-name">Legal First Name</label>
-            <input class="form-control" type="text" id="create-user-first-name" name="create-user-first-name" required>
-            <label for="create-user-last-name">Legal Last Name</label>
-            <input class="form-control" type="text" id="create-user-last-name" name="create-user-last-name" required>
-            <label for="create-username">Username</label>
-            <input class="form-control" type="text" id="create-username" name="create-username" required>
-            <label for="create-password">Password</label>
-            <input class="form-control" type="password" id="create-password" name="create-password" required><br>
-            <button id="continue-button" class="btn btn-primary" onclick="toggleStage()">Continue</button>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group"><label for="create-email">Email Address</label>
+                        <input class="form-control" type="text" id="create-email" name="create-email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="create-user-first-name">Legal First Name</label>
+                        <input class="form-control" type="text" id="create-user-first-name"
+                            name="create-user-first-name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="create-user-last-name">Legal Last Name</label>
+                        <input class="form-control" type="text" id="create-user-last-name" name="create-user-last-name"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="create-username">Username</label>
+                        <input class="form-control" type="text" id="create-username" name="create-username" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="create-password">Password</label>
+                        <input class="form-control" type="password" id="create-password" name="create-password"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <button id="continue-button" class="btn btn-primary" onclick="toggleStage()">Continue</button>
+                </div>
+            </div>
         </div>
         <div id="create-stage-two">
-            <label for="create-user-residential-address">Residential Address</label>
-            <input class="form-control" type="text" id="create-user-residential-address"
-                name="create-user-residential-address" required>
-            <label for="create-user-birthday">Birthday</label>
-            <input class="form-control" type="text" id="create-user-birthday" name="create-user-birthday" required>
-            <label for="create-user-social-security">Social Security (SSN)</label>
-            <input class="form-control" type="password" id="create-user-social-security"
-                name="create-user-social-security" required>
-            <label for="create-user-security-answer">Security Answer:<br>What was your childhood name?</label>
-            <input class="form-control" type="text" id="create-user-security-answer" name="create-user-security-answer"
-                required>
-            <br>
-            <button class="btn btn-secondary" onclick="toggleStage()">Back</button>
-            <button class="btn btn-primary" type="button" onclick = "submitCreate()">Create Account</button>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="create-user-residential-address">Residential Address</label>
+                        <input class="form-control" type="text" id="create-user-residential-address"
+                            name="create-user-residential-address" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group"><label for="create-user-birthday">Birthday</label>
+                        <input class="form-control" type="text" id="create-user-birthday" name="create-user-birthday"
+                            required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group"><label for="create-user-social-security">Social Security (SSN)</label>
+                        <input class="form-control" type="password" id="create-user-social-security"
+                            name="create-user-social-security" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="create-user-security-answer">Security Question:<br>What was your childhood
+                            name?</label>
+                        <input class="form-control" type="text" id="create-user-security-answer"
+                            name="create-user-security-answer" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <button class="btn btn-secondary" id="back-btn" onclick="toggleStage()">Back</button>
+                    <button class="btn btn-primary" id="create-btn" type="button" onclick="submitCreate()">Create
+                        Account</button>
+                </div>
+            </div>
+
         </div>
         <div id="create-status" class="alert"></div>
     </form>
@@ -145,26 +209,30 @@
         <button class="exit-form-button btn btn-secondary" onclick="toggleLoginOff()">&#10005;</button>
         {% csrf_token %}
         <h2>Log In</h2>
+        <div class="underlineSmallLeft"></div>
+        <br>
         <label for="username">Username:</label>
         <input class="form-control" type="text" id="username" name="username" required>
         <label for="password">Password:</label>
-        <input class="form-control" type="password" id="password" name="password" required><br>
-        <button class="btn btn-primary" type = "button" onclick = "submitLogin()">Log In</button>
-        <p>No account? <a onclick="showCreate()" style="color:#fb8b24;cursor:pointer;">Create Account</a></p>
+        <input class="form-control" type="password" id="password" name="password" required>
+        <button class="btn btn-primary login-btn" type="button" onclick="submitLogin()">Log In</button>
+        <p>Or <a onclick="showCreate()">create an account.</a></p>
         <div id="login-status" class="alert"></div>
     </form>
     <script>
         function showCreate() {
             document.getElementById("blur-back").style.display = "block";
             document.getElementById("create-acc-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
         }
 
         function hideCreate() {
-            if(document.getElementById("blur-back").style.display != "none"&&document.getElementById("login-form").style.display != "block")
-            {
+            if (document.getElementById("blur-back").style.display != "none" && document.getElementById("login-form").style.display != "block") {
                 document.getElementById("blur-back").style.display = "none";
             }
             document.getElementById("create-acc-form").style.display = "none";
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("blur-back").style.display = "block";
         }
     </script>
     {% endif %}
