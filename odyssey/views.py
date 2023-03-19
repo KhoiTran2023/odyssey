@@ -150,7 +150,8 @@ def generate_chatbot_response(message):
     elif "thanks" in message.lower() or "thank you" in message.lower():
         response = "You're welcome! Is there anything else I can assist you with?"
     elif "more" in message.lower() or "help" in message.lower() or "human" in message.lower() or "representative" in message.lower():
-        response = "Unfortunately, due to volume, there are no agents available at this time. To have an Odysseynaut help you, visit <strong>Contact Us</strong> to submit a support ticket. Thank you for your patience."
+        redirection = reverse("contact us")
+        response = "Unfortunately, due to volume, there are no agents available at this time. To have an Odysseynaut help you, visit <strong><a href = '"+redirection+"' >Contact Us</a></strong> to submit a support ticket. Thank you for your patience."
     else:
         response = "I'm sorry, I didn't understand your message. How can I assist you?"
     return response

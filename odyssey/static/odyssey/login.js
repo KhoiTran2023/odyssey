@@ -1,4 +1,4 @@
-const loginForm = document.querySelector('#login-form');
+const loginForm = document.getElementById('login-form');
 const loginStatus = document.querySelector('#login-status');
 const blurBack = document.getElementById("blur-back");
 var indexUrl = "";

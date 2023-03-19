@@ -1244,7 +1244,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    z-index: 999;
+    z-index: 997;
     cursor: pointer;
     border: none;
     transition: 1s;
@@ -2441,7 +2441,7 @@ h4 {
 }
 
 #add-payment-form {
-    z-index: 905;
+    z-index: 906;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2490,4 +2490,111 @@ h4 {
     width: 100%;
     display: none;
     transition: 1s;
+}
+
+/*loading screen */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        opacity:100%;
+    }
+    75% { 
+        transform: rotate(480deg);
+        opacity:100%;
+    }
+
+    100% {
+        opacity:0%;
+        transform:rotate(540deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        opacity:100%;
+    }
+    75% { 
+        transform: rotate(480deg);
+        opacity:100%;
+    }
+
+    100% {
+        opacity:0%;
+        transform:rotate(540deg);
+    }
+}
+
+@keyframes dissolve {
+    0% {
+        opacity:100%;
+    }
+    75% { 
+        opacity:100%;
+    }
+
+    100% {
+        opacity:0%;
+    }
+}
+
+@-webkit-keyframes dissolve {
+    0% {
+        opacity:100%;
+    }
+    75% { 
+        opacity:100%;
+    }
+
+    100% {
+        opacity:0%;
+    }
+}
+
+.load {
+    position:absolute;
+    z-index:998;
+	width: 50px;
+	height: 50px;
+	border:solid 5px #fb8b24;
+	border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	 -webkit-transition: all 0.3s;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         0.7s; 
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    	
+    	 transition: all 0.3s;
+    animation-name:             rotate; 
+    animation-duration:         0.7s; 
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.load-bg {
+    position:absolute;
+    right:0px;
+    top:0px;
+    height:100%;
+    width:100%;
+    z-index:999;
+    background-color:#292b2c;
+
+    -webkit-transition: all 0.3s;
+    -webkit-animation-name:             dissolve; 
+    -webkit-animation-duration:         0.7s; 
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    	
+    	 transition: all 0.3s;
+    animation-name:             dissolve; 
+    animation-duration:         0.7s; 
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
 }

@@ -208,10 +208,10 @@
 <div class="fadeIn">
     <div class="tabsTour">
         <!-- toggle the login form off whenever switching between tabs-->
-        <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();hideCreate();">
-        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();hideCreate();">
-        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();hideCreate();">
-        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();hideCreate();">
+        <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
         <ul class="bookingTitles">
             <li title="Orbital Tour"><label for="tab1" role="button"><svg viewBox="0 0 24 24">
                         <path xmlns="http://www.w3.org/2000/svg"
@@ -354,7 +354,7 @@
                                         Book
                                         Tour</button>
                                 </div>
-
+                                <!--Copy-->
                                 <div id="payment-form-popup" class="payment-form-popup">
                                     <input value="Orbital Space Tour" name="tourChoice" style="display:none;" />
                                     <button id="btn-close" type="button" onclick="toggleSavedToPay()">&#65343;</button>
@@ -514,7 +514,7 @@
                                 </div>
                                 <button class="btn btn-outline-light" onclick="addNewPayment()">+Add</button>
                             </form>
-
+                            <!--End Copy-->
                             {% else %}
                             <h4 class="centeredText">Please log in to book this tour.</h4>
                             <br>
