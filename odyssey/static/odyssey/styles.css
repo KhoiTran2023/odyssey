@@ -150,8 +150,19 @@ h1 {
     color: whitesmoke;
 }
 
+.headingOrange-sources {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 400%;
+    text-align: center;
+    color: whitesmoke;
+}
+
 @media (max-width: 370px) {
-    .headingOrange {
+
+    .headingOrange,
+    .headingOrange-sources {
         font-size: 150%;
     }
 }
@@ -597,281 +608,6 @@ button.active {
     }
 }
 
-/*TOUR CARDS */
-.containerforCards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-auto-rows: auto;
-}
-
-.labels {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    font-family: 'Karla', sans-serif;
-    font-size: 30px;
-    color: #fb8b24;
-}
-
-.labels2 {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    font-family: 'Karla', sans-serif;
-    font-size: 30px;
-    color: #fb8b24;
-}
-
-@media (max-width: 1000px) {
-    .labels {
-        display: none;
-        align-items: center;
-        justify-items: center;
-        font-family: 'Karla', sans-serif;
-        font-size: 30px;
-    }
-}
-
-.orbitalCard {
-    position: relative;
-    display: block;
-    width: 400px;
-    height: 300px;
-    background: #000;
-    background: url("assets/orbital.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.issCard {
-    position: relative;
-    display: block;
-    width: 400px;
-    height: 300px;
-    background: #000;
-    background: url("assets/iss.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.moonCard {
-    position: relative;
-    display: block;
-    width: 400px;
-    height: 300px;
-    background: #000;
-    background: url("assets/moon.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.programCard {
-    position: relative;
-    display: block;
-    width: 400px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 32px;
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.programCard h2 {
-    font-size: 25px;
-    font-family: 'Karla', sans-serif;
-    text-align: center;
-    color: #f8f9fa;
-    padding-top: 5%;
-    margin: 5%;
-
-}
-
-.programCard p {
-    line-height: 1.9;
-    font-family: 'Inconsolata', monospace;
-    text-align: center;
-    padding-left: 10%;
-    padding-right: 10%;
-    color: #f8f9fa;
-    vertical-align: center;
-
-}
-
-.programCard a {
-    border: none;
-    background: #fff;
-    padding: 10px 30px;
-    margin-top: 10%;
-    text-decoration: none;
-    font-size: 15px;
-    border-radius: 50px;
-    font-family: 'Karla', sans-serif;
-    text-align: center;
-}
-
-@media (max-width: 400px) {
-
-    .issCard,
-    .moonCard,
-    .orbitalCard,
-    .programCard {
-        width: 300px;
-        height: 425px;
-    }
-}
-
-@media (max-width: 400px) {
-    .programCard {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-.programCard:hover {
-    transform: translateY(-5%);
-}
-
-.launchRecovery1 {
-    position: relative;
-    display: block;
-    width: 80%;
-    height: 500px;
-    background: #000;
-    background: url("assets/nausicaLaunch.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.launchRecovery2 {
-    position: relative;
-    display: block;
-    width: 80%;
-    height: 500px;
-    background: #000;
-    background: url("assets/launch.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.launchRecovery3 {
-    position: relative;
-    display: block;
-    width: 80%;
-    height: 500px;
-    background: #000;
-    background: url("assets/recovery3.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.launchRecovery4 {
-    position: relative;
-    display: block;
-    width: 80%;
-    height: 500px;
-    background: #000;
-    background: url("assets/recovery2.jpg");
-    background-size: cover;
-    margin: 5px auto;
-    border-radius: 32px;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
-}
-
-.hoverdiv {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 32px;
-    opacity: 0;
-    color: whitesmoke;
-    transition: all 0.3s ease-in-out;
-    transition-delay: 0.3s;
-    box-sizing: border-box;
-    font-family: 'Inconsolata', monospace;
-}
-
-.hoverdiv2 {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    opacity: 0;
-    border-radius: 32px;
-    transition: all 0.3s ease-in-out;
-    transition-delay: 0.3s;
-    box-sizing: border-box;
-    font-family: 'Inconsolata', monospace;
-}
-
-.hoverdiv a {
-    border: none;
-    background: #fff;
-    padding: 10px 30px;
-    display: inline-block;
-    margin-top: 5px;
-    text-decoration: none;
-    font-size: 15px;
-    border-radius: 50px;
-    font-family: 'Karla', sans-serif;
-}
-
-
-.orbitalCard:hover .hoverdiv,
-.issCard:hover .hoverdiv,
-.moonCard:hover .hoverdiv,
-.containerCards:active .hoverdiv {
-    opacity: 1;
-}
-
-.launchRecovery1:hover .hoverdiv2,
-.launchRecovery2:hover .hoverdiv2,
-.launchRecovery3:hover .hoverdiv2,
-.launchRecovery4:hover .hoverdiv2 {
-    opacity: 1;
-}
-
-.orbitalCard:hover,
-.issCard:hover,
-.moonCard:hover,
-.launchRecovery1:hover,
-.launchRecovery2:hover,
-.launchRecovery3:hover,
-.launchRecovery4:hover {
-    transform: scale(1.03);
-}
-
-/*TOUR CARDS END*/
-
 .training {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1119,7 +855,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
         justify-content: center;
         width: 400px;
         height: auto;
-        margin-top: 15vh;
+        margin-top: 5vh;
         margin-left: 0;
         padding-bottom: 30px;
     }
@@ -1629,6 +1365,16 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 }
 
 @media (max-width: 600px) {
+    .tabs {
+        height: 550px;
+        padding: 25px;
+    }
+
+    .nausica-container .container {
+        margin-right: 0%;
+        margin-left: 0;
+    }
+
     .tabs ul li label {
         padding: 5px;
         border-radius: 5px;
@@ -1647,6 +1393,7 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     }
 
     .tabs .content section h2 {
+        margin-top: 10%;
         display: block;
     }
 }
@@ -1898,7 +1645,8 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 /*booking form*/
 
-.booking-container {
+.booking-container,
+.sources-container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -1906,6 +1654,12 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 
 .booking-container .flex-child {
     flex: 1 1 500px;
+}
+
+.sources-container .flex-child {
+    flex: 1 1 300px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .booking-container .container {
@@ -1924,23 +1678,6 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     right: 0;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-}
-
-#booking {
-    font-family: 'Poppins', sans-serif;
-    background-image: url('https://i.imgur.com/ZaRYfYW.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#booking::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgba(47, 103, 177, 0.6);
 }
 
 .booking-form {
@@ -1962,28 +1699,28 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
 .form-control {
     background-color: whitesmoke;
     border-radius: 25px;
-    border: none;
+
     height: 40px;
     -webkit-box-shadow: none;
     box-shadow: none;
-    color: #3e485c;
+    color: #464646;
     font-size: 14px;
 }
 
 .booking-form .form-control::-webkit-input-placeholder {
-    color: rgba(62, 72, 92, 0.3);
+    color: rgb(105, 105, 105);
 }
 
 .booking-form .form-control:-ms-input-placeholder {
-    color: rgba(62, 72, 92, 0.3);
+    color: rgb(105, 105, 105);
 }
 
 .booking-form .form-control::placeholder {
-    color: rgba(62, 72, 92, 0.3);
+    color: rgb(105, 105, 105);
 }
 
 .booking-form input[type="date"].form-control:invalid {
-    color: rgba(62, 72, 92, 0.3);
+    color: rgb(105, 105, 105);
 }
 
 .booking-form select.form-control {
@@ -2041,23 +1778,6 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     opacity: 0.9;
     background-color: #fb8b24;
     color: whitesmoke;
-}
-
-.booking-cta {
-    margin-top: 80px;
-    margin-bottom: 30px;
-}
-
-.booking-cta h1 {
-    font-size: 52px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 700;
-}
-
-.booking-cta p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
 }
 
 .form-btn {
@@ -2373,7 +2093,9 @@ h4 {
 }
 
 @media (max-width: 600px) {
-    .booking-container {
+
+    .booking-container,
+    .sources-container {
         flex-direction: column;
     }
 
@@ -2389,7 +2111,7 @@ h4 {
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
-        height: 2250px;
+        height: 2200px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         border-radius: 5px;
         min-width: 240px;
@@ -2420,8 +2142,24 @@ h4 {
     -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+@media(max-width: 500px) {
+    .contactus-container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .sources-container .flex-child {
+        width: 300px;
+        margin-left: 12%;
+    }
+
+    .break {
+        word-wrap: break-word;
+    }
 }
 
 /*payment form popup*/
@@ -2496,105 +2234,109 @@ h4 {
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
-        opacity:100%;
+        opacity: 100%;
     }
-    75% { 
+
+    75% {
         transform: rotate(480deg);
-        opacity:100%;
+        opacity: 100%;
     }
 
     100% {
-        opacity:0%;
-        transform:rotate(540deg);
+        opacity: 0%;
+        transform: rotate(540deg);
     }
 }
- 
 
- @-webkit-keyframes rotate {
+
+@-webkit-keyframes rotate {
     0% {
         transform: rotate(0deg);
-        opacity:100%;
+        opacity: 100%;
     }
-    75% { 
+
+    75% {
         transform: rotate(480deg);
-        opacity:100%;
+        opacity: 100%;
     }
 
     100% {
-        opacity:0%;
-        transform:rotate(540deg);
+        opacity: 0%;
+        transform: rotate(540deg);
     }
 }
 
 @keyframes dissolve {
     0% {
-        opacity:100%;
+        opacity: 100%;
     }
-    75% { 
-        opacity:100%;
+
+    75% {
+        opacity: 100%;
     }
 
     100% {
-        opacity:0%;
+        opacity: 0%;
     }
 }
 
 @-webkit-keyframes dissolve {
     0% {
-        opacity:100%;
+        opacity: 100%;
     }
-    75% { 
-        opacity:100%;
+
+    75% {
+        opacity: 100%;
     }
 
     100% {
-        opacity:0%;
+        opacity: 0%;
     }
 }
 
 .load {
-    position:absolute;
-    z-index:998;
-	width: 50px;
-	height: 50px;
-	border:solid 5px #fb8b24;
-	border-radius: 50%;
+    position: absolute;
+    z-index: 998;
+    width: 50px;
+    height: 50px;
+    border: solid 5px #fb8b24;
+    border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-	border-right-color: transparent;
-	border-bottom-color: transparent;
-	 -webkit-transition: all 0.3s;
-    -webkit-animation-name:             rotate; 
-    -webkit-animation-duration:         0.7s; 
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    -webkit-transition: all 0.3s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 0.7s;
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-fill-mode: forwards;
-    	
-    	 transition: all 0.3s;
-    animation-name:             rotate; 
-    animation-duration:         0.7s; 
-    animation-timing-function:ease-in-out;
+
+    transition: all 0.3s;
+    animation-name: rotate;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
 
 .load-bg {
-    position:absolute;
-    right:0px;
-    top:0px;
-    height:100%;
-    width:100%;
-    z-index:999;
-    background-color:#292b2c;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: #292b2c;
 
     -webkit-transition: all 0.3s;
-    -webkit-animation-name:             dissolve; 
-    -webkit-animation-duration:         0.7s; 
+    -webkit-animation-name: dissolve;
+    -webkit-animation-duration: 0.7s;
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-fill-mode: forwards;
-    	
-    	 transition: all 0.3s;
-    animation-name:             dissolve; 
-    animation-duration:         0.7s; 
-    animation-timing-function:ease-in-out;
+
+    transition: all 0.3s;
+    animation-name: dissolve;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
