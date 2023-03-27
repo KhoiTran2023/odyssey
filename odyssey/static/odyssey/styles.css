@@ -2235,16 +2235,19 @@ h4 {
     0% {
         transform: rotate(0deg);
         opacity: 100%;
+        z-index:999;
     }
 
     75% {
         transform: rotate(480deg);
         opacity: 100%;
+        z-index:999;
     }
 
     100% {
         opacity: 0%;
         transform: rotate(540deg);
+        z-index:-1;
     }
 }
 
@@ -2253,44 +2256,53 @@ h4 {
     0% {
         transform: rotate(0deg);
         opacity: 100%;
+        z-index:999;
     }
 
     75% {
         transform: rotate(480deg);
         opacity: 100%;
+        z-index:999;
     }
 
     100% {
         opacity: 0%;
         transform: rotate(540deg);
+        z-index:-1;
     }
 }
 
 @keyframes dissolve {
     0% {
         opacity: 100%;
+        z-index:998;
     }
 
     75% {
         opacity: 100%;
+        z-index:998;
     }
 
     100% {
         opacity: 0%;
+        z-index:-1;
     }
 }
 
 @-webkit-keyframes dissolve {
     0% {
         opacity: 100%;
+        z-index:998;
     }
 
     75% {
         opacity: 100%;
+        z-index:998;
     }
 
     100% {
         opacity: 0%;
+        z-index:-1;
     }
 }
 
