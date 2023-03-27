@@ -2352,3 +2352,11 @@ h4 {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
+
+#map {
+    width:100%;
+}
+
+#map iframe {
+    width:100%;
+}
