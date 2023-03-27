@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib import messages
 from odyssey.models import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import random
@@ -34,6 +35,16 @@ def error(request):
 
 # Tour booking
 
+def register_param(request, checked):
+    if request.user.is_authenticated:
+        payments = Payment.objects.filter(account = request.user)
+        return render(request, "odyssey/order.html", context = {
+            "payments":payments,
+            "checked":checked,
+        })
+    return render(request, "odyssey/order.html", context = {
+        "checked":checked,
+    })
 
 def register(request):
     if request.user.is_authenticated:
@@ -74,6 +85,20 @@ def fetch_url(request):
 
 # Authentication System
 
+@login_required
+def profile(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Please Log In")
+        return HttpResponseRedirect(reverse("registration"))
+    account = Account.objects.get(user = request.user)
+    payment_methods = Payment.objects.filter(account = request.user)
+    orders = Order.objects.filter(account = request.user)
+    context = {
+        "account":account,
+        "payments":payment_methods,
+        "orders":orders,
+    }
+    return render(request, "odyssey/profile.html", context)
 
 def registration_view(request):
     return render(request, "odyssey/registration.html")

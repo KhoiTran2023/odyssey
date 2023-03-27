@@ -161,7 +161,7 @@
                     Earth,
                     Moon, and
                     its nearby astral bodies.</p>
-                <a href="{% url 'register' %}" class="btn btn-primary small">Book now</a>
+                <a href="{% url 'register_param' checked=0 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
         <div class="card">
@@ -175,7 +175,7 @@
                     it's like
                     to be
                     an astronaut for a month.</p>
-                <a href="{% url 'register' %}" class="btn btn-primary small">Book now</a>
+                <a href="{% url 'register_param' checked=1 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
         <div class="card">
@@ -187,7 +187,7 @@
                 <p class="card-text">The Moon Tour will take you to the moon to have some fun in zero gravity and
                     collect
                     moon rocks as souvenirs to bring back home.</p>
-                <a href="{% url 'register' %}" class="btn btn-primary small">Book now</a>
+                <a href="{% url 'register_param' checked=2 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
         <div class="card">
@@ -198,7 +198,7 @@
                 <br>
                 <p class="card-text">The Deluxe Tour is an all-inclusive package that combines the Orbital,
                     ISS, and Moon Tours for an unforgettable experience.</p>
-                <a href="{% url 'register' %}" class="btn btn-primary small">Book now</a>
+                <a href="{% url 'register_param' checked=3 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
     </div>

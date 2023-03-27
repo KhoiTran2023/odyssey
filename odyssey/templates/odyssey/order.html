@@ -27,10 +27,32 @@
 <div class="fadeIn">
     <div class="tabsTour">
         <!-- toggle the login form off whenever switching between tabs-->
-        <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
-        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
-        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
-        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        {% if checked == 0 %}
+            <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        {% elif checked == 1 %}
+            <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab2" name="tab-control" checked onclick="toggleLoginOff();">
+            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        {% elif checked == 2 %}
+            <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab3" name="tab-control" checked onclick="toggleLoginOff();">
+            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        {% elif checked == 3 %}
+            <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab4" name="tab-control" checked onclick="toggleLoginOff();">
+        {% else %}
+            <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        {% endif %}
         <ul class="bookingTitles">
             <li title="Orbital Tour"><label for="tab1" role="button"><svg viewBox="0 0 24 24">
                         <path xmlns="http://www.w3.org/2000/svg"
