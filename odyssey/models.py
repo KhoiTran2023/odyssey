@@ -49,9 +49,10 @@ class Order(models.Model):
         choices = STATUS_CHOICES,
         default = "pending",
     )
+    date = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
-        return f"{self.tourChoice}"
+        return f"{self.date} {self.account} {self.tourChoice}"
 
 class LoginPing(models.Model):
     user= models.ForeignKey(User, on_delete = models.RESTRICT)
