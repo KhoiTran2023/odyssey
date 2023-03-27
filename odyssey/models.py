@@ -42,8 +42,6 @@ STATUS_CHOICES = (
 
 class Order(models.Model):
     tourChoice = models.CharField(max_length = 64)
-    departDate = models.CharField(max_length = 64)
-    ticketCount = models.IntegerField()
     payment = models.ForeignKey(Payment, on_delete = models.CASCADE)
     account = models.ForeignKey(User, on_delete = models.CASCADE)
     status = models.CharField(
@@ -53,7 +51,7 @@ class Order(models.Model):
     )
 
     def __str__(self):
-        return f"{self.ticketCount} tickets to {self.tourChoice}"
+        return f"{self.tourChoice}"
 
 class LoginPing(models.Model):
     user= models.ForeignKey(User, on_delete = models.RESTRICT)

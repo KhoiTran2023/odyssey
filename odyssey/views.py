@@ -69,7 +69,7 @@ def register_view(request):
     if request.method == "POST":
         #add functionality and json response
         paymentChoice = Payment.objects.get(account = request.user, cardName = request.POST.get("cardSelection"))
-        o = Order(tourChoice = request.POST.get("tourChoice"),departDate = request.POST.get("departDate"), ticketCount = request.POST.get("ticketCount"),account = request.user, payment = paymentChoice)
+        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice)
         o.save()
         print(o)
         messages.success(

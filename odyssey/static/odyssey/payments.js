@@ -12,6 +12,18 @@ function toggleSavedToPay() {
     }
 }
 
+function toggleSavedToPay(tourChoice) {
+    if (popupForm.style.display == "none") {
+        popupForm.style.display = "block";
+        npForm.style.display = "none";
+        let string = tourChoice
+        document.getElementById("Individual-Value").value = string;
+    }
+    else {
+        popupForm.style.display = "none";
+    }
+}
+
 function submitPayment() {
 
     const formData = new FormData(orderForm);
