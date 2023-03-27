@@ -1,19 +1,9 @@
 {% extends 'odyssey/layout.html' %}
 
 {% block head %}
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 {% endblock %}
 
 {% block body %}
-<div id='map' style='width: 400px; height: 300px;'>
-    <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/gktrvn/clfre1e65000s01nnltxxe441.html?title=false&access_token=pk.eyJ1IjoiZ2t0cnZuIiwiYSI6ImNsZnJkc2M5aDAwemczdmp4b29maXJydnMifQ.j8JwNFa-0CZ9Zem2cOigJw&zoomwheel=false#10.93/40.7306/-73.9971" title="Monochrome" style="border:none;"></iframe></div>
-<script>
-  mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
-</script>
+
 
 {% endblock %}
