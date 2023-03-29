@@ -8,12 +8,13 @@
 <script src="{% static 'odyssey/login.js' %}"></script>
 <script src="{% static 'odyssey/registration.js' %}"></script>
 <div class="parallaxOrder">
-    <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none"
-        id="downIndicator" class="fadeOut">
-        <path
-            d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.06 11.27L12.53 14.8C12.38 14.95 12.19 15.02 12 15.02C11.81 15.02 11.62 14.95 11.47 14.8L7.94 11.27C7.65 10.98 7.65 10.5 7.94 10.21C8.23 9.92 8.71 9.92 9 10.21L12 13.21L15 10.21C15.29 9.92 15.77 9.92 16.06 10.21C16.35 10.5 16.35 10.97 16.06 11.27Z"
-            fill="#fb8b24" />
-    </svg>
+    <a href="#bookTour"><svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24"
+            fill="none" id="downIndicator">
+            <path d=" M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.06
+        11.27L12.53 14.8C12.38 14.95 12.19 15.02 12 15.02C11.81 15.02 11.62 14.95 11.47 14.8L7.94 11.27C7.65 10.98 7.65
+        10.5 7.94 10.21C8.23 9.92 8.71 9.92 9 10.21L12 13.21L15 10.21C15.29 9.92 15.77 9.92 16.06 10.21C16.35 10.5 16.35
+        10.97 16.06 11.27Z" fill="#fb8b24" />
+        </svg></a>
 </div>
 
 <br>
@@ -24,29 +25,29 @@
     choosing to fly with Odyssey.</p>
 <br>
 
-<div class="fadeIn">
+<div class="fadeIn" id="#bookTour">
     <div class="tabsTour">
         <!-- toggle the login form off whenever switching between tabs-->
         {% if checked == 0 %}
-            <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
-            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
         {% elif checked == 1 %}
-            <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab2" name="tab-control" checked onclick="toggleLoginOff();">
-            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab2" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
         {% elif checked == 2 %}
-            <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab3" name="tab-control" checked onclick="toggleLoginOff();">
-            <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab1" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab3" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab4" name="tab-control" onclick="toggleLoginOff();">
         {% elif checked == 3 %}
-            <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
-            <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
-            <input type="radio" id="tab4" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
+        <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab3" name="tab-control" onclick="toggleLoginOff();">
+        <input type="radio" id="tab4" name="tab-control" checked onclick="toggleLoginOff();">
         {% else %}
         <input type="radio" id="tab1" name="tab-control" checked onclick="toggleLoginOff();">
         <input type="radio" id="tab2" name="tab-control" onclick="toggleLoginOff();">
@@ -71,167 +72,167 @@
                             d="M12 3C12 7.97056 16.0294 12 21 12C16.0294 12 12 16.0294 12 21C12 16.0294 7.97056 12 3 12C5.6655 12 8.06036 10.8412 9.70832 9" />
                     </svg><br><span> Deluxe Tour</span></label></li>
         </ul>
-    <form id="orderForm">
-        {% csrf_token %}
-        <div id="payment-form-popup" class="payment-form-popup">
-            <input id = "Individual-Value" value="Orbital Space Tour" name="tourChoice" style="display:block;" />
-            <button id="btn-close" type="button" onclick="toggleSavedToPay()">&#65343;</button>
-            <h2>Make your deposit</h2>
+        <form id="orderForm">
+            {% csrf_token %}
+            <div id="payment-form-popup" class="payment-form-popup">
+                <input id="Individual-Value" value="Orbital Space Tour" name="tourChoice" style="display:block;" />
+                <button id="btn-close" type="button" onclick="toggleSavedToPay()">&#65343;</button>
+                <h2>Make your deposit</h2>
+                <div class="underlineSmallLeft"></div>
+                <br>
+                <p>$10,000 due today and billed completely after redeemed.</p>
+                <span class="form-label">Select Saved Payment:</span>
+                <select class="form-control" name="cardSelection">
+                    {% if payments %}
+                    {% for payment in payments %}
+                    <option value="{{payment.cardName}}">{{payment.cardName}}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
+                <br>
+                <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
+                <br>
+                <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
+            </div>
+        </form>
+
+        <form id="add-payment-form">
+            {% csrf_token %}
+            <h2>Add A New Payment</h2>
             <div class="underlineSmallLeft"></div>
             <br>
-            <p>$10,000 due today and billed completely after redeemed.</p>
-            <span class="form-label">Select Saved Payment:</span>
-            <select class="form-control" name="cardSelection">
-                {% if payments %}
-                {% for payment in payments %}
-                <option value="{{payment.cardName}}">{{payment.cardName}}</option>
-                {% endfor %}
-                {% endif %}
-            </select>
+            <button id="btn-close-0" type="button" onclick="toggleSavedToPay()">&#65343;</button>
+            <h4>Billing Details</h4>
             <br>
-            <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
-            <br>
-            <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
-        </div>
-    </form>
-
-    <form id="add-payment-form">
-        {% csrf_token %}
-        <h2>Add A New Payment</h2>
-        <div class="underlineSmallLeft"></div>
-        <br>
-        <button id="btn-close-0" type="button" onclick="toggleSavedToPay()">&#65343;</button>
-        <h4>Billing Details</h4>
-        <br>
-        <div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="form-label" for="bfname">First Name</label>
-                        <input type="text" name="bfname" class="form-control" />
+            <div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="form-label" for="bfname">First Name</label>
+                            <input type="text" name="bfname" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="form-label" for="blname">Last Name</label>
+                            <input type="text" name="blname" class="form-control" />
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="form-label" for="blname">Last Name</label>
-                        <input type="text" name="blname" class="form-control" />
+                <div class="form-group">
+                    <label class="form-label" for="baddress">Address</label>
+                    <input type="text" name="baddress" class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="form-label" for="bcity">City</label>
+                            <input type="text" name="bcity" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <span class="form-label">State</span>
+                            <select name="bstate" class="form-control">
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AR">AR</option>
+                                <option value="AZ">AZ</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DC">DC</option>
+                                <option value="DE">DE</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="IA">IA</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="MA">MA</option>
+                                <option value="MD">MD</option>
+                                <option value="ME">ME</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MO">MO</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="NC">NC</option>
+                                <option value="NE">NE</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NV">NV</option>
+                                <option value="NY">NY</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WI">WI</option>
+                                <option value="WV">WV</option>
+                                <option value="WY">WY</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="form-label" for="bzip">Zip</label>
+                            <input type="number" name="bzip" class="form-control" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="baddress">Address</label>
-                <input type="text" name="baddress" class="form-control" />
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="form-label" for="bcity">City</label>
-                        <input type="text" name="bcity" class="form-control" />
-                    </div>
+                <h4>Payment Information</h4>
+                <br>
+                <div class="form-group">
+                    <label class="form-label" for="cc-nn">Card Nickname</label>
+                    <input type="text" name="cc-nn" class="form-control" />
                 </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <span class="form-label">State</span>
-                        <select name="bstate" class="form-control">
-                            <option value="AL">AL</option>
-                            <option value="AK">AK</option>
-                            <option value="AR">AR</option>
-                            <option value="AZ">AZ</option>
-                            <option value="CA">CA</option>
-                            <option value="CO">CO</option>
-                            <option value="CT">CT</option>
-                            <option value="DC">DC</option>
-                            <option value="DE">DE</option>
-                            <option value="FL">FL</option>
-                            <option value="GA">GA</option>
-                            <option value="HI">HI</option>
-                            <option value="IA">IA</option>
-                            <option value="ID">ID</option>
-                            <option value="IL">IL</option>
-                            <option value="IN">IN</option>
-                            <option value="KS">KS</option>
-                            <option value="KY">KY</option>
-                            <option value="LA">LA</option>
-                            <option value="MA">MA</option>
-                            <option value="MD">MD</option>
-                            <option value="ME">ME</option>
-                            <option value="MI">MI</option>
-                            <option value="MN">MN</option>
-                            <option value="MO">MO</option>
-                            <option value="MS">MS</option>
-                            <option value="MT">MT</option>
-                            <option value="NC">NC</option>
-                            <option value="NE">NE</option>
-                            <option value="NH">NH</option>
-                            <option value="NJ">NJ</option>
-                            <option value="NM">NM</option>
-                            <option value="NV">NV</option>
-                            <option value="NY">NY</option>
-                            <option value="ND">ND</option>
-                            <option value="OH">OH</option>
-                            <option value="OK">OK</option>
-                            <option value="OR">OR</option>
-                            <option value="PA">PA</option>
-                            <option value="RI">RI</option>
-                            <option value="SC">SC</option>
-                            <option value="SD">SD</option>
-                            <option value="TN">TN</option>
-                            <option value="TX">TX</option>
-                            <option value="UT">UT</option>
-                            <option value="VT">VT</option>
-                            <option value="VA">VA</option>
-                            <option value="WA">WA</option>
-                            <option value="WI">WI</option>
-                            <option value="WV">WV</option>
-                            <option value="WY">WY</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="paymentMethod">Select Payment Method</label>
+                    <select class="form-control" name="paymentMethod">
+                        <option value="Credit">Credit</option>
+                        <option value="Debit">Debit</option>
+                    </select>
                 </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label class="form-label" for="bzip">Zip</label>
-                        <input type="number" name="bzip" class="form-control" />
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="cc-name">Name on Card</label>
+                    <input type="text" name="cc-name" class="form-control" />
                 </div>
-            </div>
-            <h4>Payment Information</h4>
-            <br>
-            <div class="form-group">
-                <label class="form-label" for="cc-nn">Card Nickname</label>
-                <input type="text" name="cc-nn" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="paymentMethod">Select Payment Method</label>
-                <select class="form-control" name="paymentMethod">
-                    <option value="Credit">Credit</option>
-                    <option value="Debit">Debit</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="cc-name">Name on Card</label>
-                <input type="text" name="cc-name" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="cc-num">Credit Card Number</label>
-                <input type="text" name="cc-num" class="form-control" />
-            </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label class="form-label" for="cc-exp">Exp. Date</label>
-                        <input type="text" name="cc-exp" class="form-control" />
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="cc-num">Credit Card Number</label>
+                    <input type="text" name="cc-num" class="form-control" />
                 </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label class="form-label" for="cc-cvv">CVV</label>
-                        <input type="number" name="cc-cvv" class="form-control" />
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="form-label" for="cc-exp">Exp. Date</label>
+                            <input type="text" name="cc-exp" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="form-label" for="cc-cvv">CVV</label>
+                            <input type="number" name="cc-cvv" class="form-control" />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <button class="btn btn-outline-light" onclick="addNewPayment()">+Add</button>
-    </form>
+            <button class="btn btn-outline-light" onclick="addNewPayment()">+Add</button>
+        </form>
         <div class="slider">
             <div class="indicator"></div>
         </div>
@@ -332,29 +333,30 @@
                             </ul>
                             <br>
                             {% if user.is_authenticated %}
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Departure Date</span>
-                                            <input class="form-control" type="date" name="departDate" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="form-label" for="typeNumber">Tickets</label>
-                                            <input type="number" id="typeNumber" name="ticketCount" class="form-control"
-                                                value="1" />
-                                        </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Departure Date</span>
+                                        <input class="form-control" type="date" name="departDate" required>
                                     </div>
                                 </div>
-                                <br>
-                                <div class="form-btn centeredText">
-                                    <button type="button" class="submit-btn" onclick="toggleSavedToPay('Orbital Space Tour')">Confirm and
-                                        Book
-                                        Tour</button>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="typeNumber">Tickets</label>
+                                        <input type="number" id="typeNumber" name="ticketCount" class="form-control"
+                                            value="1" />
+                                    </div>
                                 </div>
-                                <!--Copy-->
-                                
+                            </div>
+                            <br>
+                            <div class="form-btn centeredText">
+                                <button type="button" class="submit-btn"
+                                    onclick="toggleSavedToPay('Orbital Space Tour')">Confirm and
+                                    Book
+                                    Tour</button>
+                            </div>
+                            <!--Copy-->
+
                             <!--End Copy-->
                             {% else %}
                             <h4 class="centeredText">Please log in to book this tour.</h4>
@@ -374,14 +376,14 @@
                     <div class="container flex-child">
                         <div class="tourHighlights">
                             <h2><b>Tour Highlights</b></h2>
-                            <p><b>01 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
-                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
-                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
-                            <p><b>02 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
-                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
-                                voluptate mollitia velit molestias quia eos?</p>
+                            <p><b>01 <span class="orange">|</span> Earth Observation</b></p>
+                            <p>Take the stunning views of Earth from above and learn about the geographical features and
+                                weather patterns about our planet. If you're feeling lucky, a surprise appearance from
+                                the Northern Lights may greet you as you fly the Earth's orbit!</p>
+                            <p><b>02 <span class="orange">|</span> Lunar Flyby</b></p>
+                            <p>Take in the beauty of our nearest celestial neighbour as you fly by the Moon. Our
+                                experienced guides will immerse you in the beauty of Earth's only natural satellite,
+                                sharing fascinating facts and stories about the moon and its place in our universe.</p>
                         </div>
                     </div>
                 </div>
@@ -503,7 +505,8 @@
                                 </div>
                                 <br>
                                 <div class="form-btn centeredText">
-                                    <button type = "button" class=" submit-btn" onclick = "toggleSavedToPay('ISS Tour')">Confirm and Book Tour</button>
+                                    <button type="button" class=" submit-btn"
+                                        onclick="toggleSavedToPay('ISS Tour')">Confirm and Book Tour</button>
                                 </div>
                             </form>
                             {% else %}
@@ -522,14 +525,16 @@
                     <div class="container flex-child">
                         <div class="tourHighlights">
                             <h2><b>Tour Highlights</b></h2>
-                            <p><b>01 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
-                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
-                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
-                            <p><b>02 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
-                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
-                                voluptate mollitia velit molestias quia eos?</p>
+                            <p><b>01 <span class="orange">|</span> The Spacewalk</b></p>
+                            <p>Experience the thrill of a spacewalk outside the station, tethered to the ISS with a
+                                safety line. Immerse yourself in the wonders of outerspace and take in the views outside
+                                the International Space Station.</p>
+                            <p><b>02 <span class="orange">|</span> Research in the Lab</b></p>
+                            <p>Spend a day or two in the station's laboratory, conducting simple scientific experiments
+                                and learning about the current research projects being conducted in the ISS.</p>
+                            <p><b>03 <span class="orange">|</span> The Cupola</b></p>
+                            <p>Take in the breathtaking views of Earth from the famous Cupola, the International Space
+                                Station's oberservation module.</p>
                         </div>
                     </div>
                 </div>
@@ -647,7 +652,8 @@
                                 </div>
                                 <br>
                                 <div class="form-btn centeredText">
-                                    <button type = "button" class=" submit-btn" onclick = "toggleSavedToPay('Moon Tour')">Confirm and Book Tour</button>
+                                    <button type="button" class=" submit-btn"
+                                        onclick="toggleSavedToPay('Moon Tour')">Confirm and Book Tour</button>
                                 </div>
                             </form>
                             {% else %}
@@ -666,14 +672,18 @@
                     <div class="container flex-child">
                         <div class="tourHighlights">
                             <h2><b>Tour Highlights</b></h2>
-                            <p><b>01 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
-                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
-                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
-                            <p><b>02 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
-                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
-                                voluptate mollitia velit molestias quia eos?</p>
+                            <p><b>01 <span class="orange">|</span> Lunar Excursion</b></p>
+                            <p>Explore the rugged terrain of the Moon on a moon buggy ride. Visit the Moon's famous
+                                craters and landscapes up close alongside our expert guides who will provide you
+                                information about the Moon's geology and history.</p>
+                            <p><b>02 <span class="orange">|</span> The Moonwalk</b></p>
+                            <p>Put on your custom Odyssey spacesuit and take a guided walk on the surface of the moon,
+                                experiencing what it's like to move and work in the low-gravity environment of space.
+                            </p>
+                            <p><b>03 <span class="orange">|</span> Scenic Flight</b></p>
+                            <p>Board the Nausica for a lunar scenic flight on the way home and take in breathtaking
+                                views of the Moon from above. You'll get a chance to view the Moon's dark side and far
+                                side, both of which are never visible from Earth.</p>
                         </div>
                     </div>
                 </div>
@@ -795,7 +805,8 @@
                                 </div>
                                 <br>
                                 <div class="form-btn centeredText">
-                                    <button type = "button" class=" submit-btn" onclick = "toggleSavedToPay('Deluxe Tour')">Confirm and Book Tour</button>
+                                    <button type="button" class=" submit-btn"
+                                        onclick="toggleSavedToPay('Deluxe Tour')">Confirm and Book Tour</button>
                                 </div>
                             </form>
                             {% else %}
@@ -814,14 +825,17 @@
                     <div class="container flex-child">
                         <div class="tourHighlights">
                             <h2><b>Tour Highlights</b></h2>
-                            <p><b>01 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos similique commodi dolor.
-                                Nemo ratione repellat adipisci ullam consequatur? Reprehenderit, labore eligendi? Autem
-                                ex exercitationem vel ab. Molestias dolore esse sequi.</p>
-                            <p><b>02 | Lorem ipsum dolor</b></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur maxime
-                                cum animi modi, quod illum incidunt natus corrupti veniam error vitae asperiores minus,
-                                voluptate mollitia velit molestias quia eos?</p>
+                            <p><b>01 <span class="orange">|</span> The Cupola</b></p>
+                            <p>Take in the breathtaking views of Earth from the famous Cupola, the International Space
+                                Station's oberservation module.</p>
+                            <p><b>02 <span class="orange">|</span> The Moonwalk</b></p>
+                            <p>Put on your custom Odyssey spacesuit and take a guided walk on the surface of the moon,
+                                experiencing what it's like to move and work in the low-gravity environment of space.
+                            </p>
+                            <p><b>03 <span class="orange">|</span> Scenic Flight</b></p>
+                            <p>Board the Nausica for a scenic flight on the way home and take in breathtaking
+                                views of the Moon and the stars. You'll get a chance to view Earth's nearby astral
+                                bodies, most of which cannot be seen from Earth.</p>
                         </div>
                     </div>
 
@@ -834,7 +848,7 @@
 <br>
 <br>
 
-<div class = "container fadeIn">
+<div class="container fadeIn">
     <iframe src="https://www.google.com/maps/d/u/3/embed?mid=1fWNRyisFzt6coTXMOKN9-ue-9bo4XdQ&ehbc=2E312F"></iframe>
 </div>
 
