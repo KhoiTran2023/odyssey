@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import timedelta, datetime
 
 # Create your models here.
 class Account(models.Model):
@@ -44,6 +45,8 @@ class Order(models.Model):
     tourChoice = models.CharField(max_length = 64)
     payment = models.ForeignKey(Payment, on_delete = models.CASCADE)
     account = models.ForeignKey(User, on_delete = models.CASCADE)
+    depart_date = models.DateField(default = (datetime.now() + timedelta(days = 64)))
+    numTickets = models.IntegerField(default = 1)
     status = models.CharField(
         max_length = 20,
         choices = STATUS_CHOICES,

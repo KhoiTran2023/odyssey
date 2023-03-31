@@ -70,3 +70,13 @@ function addNewPayment() {
             console.error(error);
         });
 }
+
+function changeNumTickets(numTickets) {
+    var value = numTickets.value;
+    document.getElementById("num-tickets").value = value;
+}
+
+function changeDate(departDate) {
+    var value = departDate.value;
+    document.getElementById("tickets-date").value = value;
+}

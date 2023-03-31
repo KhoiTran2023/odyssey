@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import random
 import json
-
+from datetime import timedelta, datetime
 
 # Page rendering
 
@@ -69,7 +69,7 @@ def register_view(request):
     if request.method == "POST":
         #add functionality and json response
         paymentChoice = Payment.objects.get(account = request.user, cardName = request.POST.get("cardSelection"))
-        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice)
+        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date = datetime.strptime(request.POST.get("tickets_date"), "%Y-%m-%d") + timedelta(days = 65),numTickets = request.POST.get("num_tickets"))
         o.save()
         print(o)
         messages.success(
