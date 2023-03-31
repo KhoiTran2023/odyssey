@@ -2399,7 +2399,7 @@ h4 {
 }
 
 .load-bg {
-    position: absolute;
+    position: fixed;
     right: 0px;
     top: 0px;
     height: 100%;

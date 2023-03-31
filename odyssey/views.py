@@ -97,6 +97,7 @@ def profile(request):
         "account":account,
         "payments":payment_methods,
         "orders":orders,
+        "user_info":request.user
     }
     return render(request, "odyssey/profile.html", context)
 

@@ -24,10 +24,19 @@
                         <br>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Full Name</h6>
+                                <h6 class="mb-0">First Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                John Doe
+                                {{user_info.first_name}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Last Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user_info.last_name}}
                             </div>
                         </div>
                         <hr>
@@ -36,7 +45,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                jd@email.com
+                                {{user_info.email}}
                             </div>
                         </div>
                         <hr>
@@ -45,7 +54,7 @@
                                 <h6 class="mb-0">Birthday</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                March 30th 2023
+                                {{account.birthday}}
                             </div>
                         </div>
                         <hr>
@@ -54,7 +63,7 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                123 Doe St, Doeland, JD
+                                {{account.residentialAddress}}
                             </div>
                         </div>
 
@@ -70,19 +79,20 @@
                         </div>
                         <div class="row">
                             <div class="tickets-container">
+                                {% for order in orders %}
                                 <div class="ticket">
                                     <div class="ticket-preview">
-                                        <h6># of Passengers: 2</h6>
+                                        <h6># of Passengers: {{order.numTickets}}</h6>
                                         <br>
-                                        <h2><b>ORBITAL TOUR</b></h2>
+                                        <h2><b>{{order.tourChoice}}</b></h2>
                                     </div>
                                     <div class="ticket-info">
-                                        <h4>Departure: 29th March, 2023</h4>
-                                        <h4>Return: 3rd April, 2023</h4>
+                                        <h4>Departure: {{order.depart_date}}</h4>
                                         <br>
                                         <h6>Thank you for choosing to fly with Odyssey.</h6>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
