@@ -2102,6 +2102,49 @@ h4 {
     }
 }
 
+@media (max-width: 1300px) {
+
+    .booking-container,
+    .sources-container {
+        flex-direction: column;
+    }
+
+    .booking-container .container {
+        margin-bottom: 2%;
+    }
+
+    .tabsTour {
+        transform: translateX(-50%);
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        padding-bottom: 80px;
+        width: 90%;
+        height: 2200px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+        min-width: 240px;
+    }
+
+    .tabsTour .bookingTitles li label {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .tabsTour .bookingTitles li label span {
+        display: none;
+    }
+
+    .tabsTour .slider {
+        display: none;
+    }
+
+    .tabsTour .content {
+        margin-top: 20px;
+    }
+}
+
 @media (max-width: 1000px) {
     .tabsTour .bookingTitles li label {
         white-space: initial;
@@ -2116,7 +2159,7 @@ h4 {
     }
 }
 
-@media(min-width: 700px) and (max-width: 800px) {
+@media(max-width: 1000px) {
 
     .booking-container,
     .sources-container {
@@ -2124,7 +2167,7 @@ h4 {
     }
 
     .booking-container .container {
-        margin-bottom: 15%;
+        margin-bottom: 2%;
     }
 
     .tabsTour {
@@ -2135,7 +2178,7 @@ h4 {
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
-        height: 2150px;
+        height: 2050px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         border-radius: 5px;
         min-width: 240px;
@@ -2630,7 +2673,7 @@ hr {
     font-family: "Poppins", sans-serif;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1000px) {
     .container-map svg {
         width: 300px;
         height: 300px;
