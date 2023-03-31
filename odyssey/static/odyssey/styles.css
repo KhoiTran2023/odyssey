@@ -2120,7 +2120,7 @@ h4 {
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
-        height: 2450px;
+        height: 2300px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         border-radius: 5px;
         min-width: 240px;
@@ -2491,6 +2491,14 @@ h2 {
 }
 
 /* map styling */
+.container-map svg {
+    width: 700px;
+    height: 700px;
+}
+
+.container-map {
+    position: relative;
+}
 
 .hide-txt {
     background: rgba(4, 4, 4, 0.25);
@@ -2507,22 +2515,69 @@ h2 {
     padding-top: 30px;
 }
 
+.marker-cali,
+.marker-texas,
+.marker-florida,
+.marker-east {
+    stroke: rgb(0, 0, 0);
+    stroke-width: 0;
+    stroke-dasharray: none;
+    stroke-linecap: butt;
+    stroke-dashoffset: 0;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    fill: rgb(245, 245, 245);
+    fill-rule: nonzero;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.svg-container {
+    transition: 0.5s;
+}
+
+.svg-container:hover {
+    cursor: pointer;
+    transform: translateY(-1%);
+}
+
 .marker-cali-txt {
-    top: 360%;
+    top: 30%;
     left: 15%;
 }
 
 .marker-texas-txt {
-    top: 378%;
+    top: 45%;
     left: 43%;
 }
 
 .marker-florida-txt {
-    top: 389%;
+    top: 55%;
     left: 68%;
 }
 
 .marker-east-txt {
-    top: 368%;
+    top: 30%;
     left: 72%;
+}
+
+hr {
+    color: whitesmoke;
+    background-color: whitesmoke;
+}
+
+.map-locations {
+    display: none;
+    font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 400px) {
+    .container-map svg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .map-locations {
+        display: block;
+    }
 }
