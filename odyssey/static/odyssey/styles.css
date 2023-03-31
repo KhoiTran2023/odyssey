@@ -1858,6 +1858,13 @@ input[data-description="2000"]:checked~#timeline-descriptions-wrapper p[data-des
     margin-right: 5%;
 }
 
+@media (min-width: 1600px) {
+    .tourHighlights {
+        margin-left: -6%;
+        margin-right: 0%;
+    }
+}
+
 .booking-form h2,
 h4 {
     font-family: "Poppins", sans-serif;
@@ -2098,6 +2105,49 @@ h4 {
 
     .tabsTour .bookingTitles li label svg {
         height: 1.5em;
+    }
+}
+
+@media(min-width: 700px) and (max-width: 800px) {
+
+    .booking-container,
+    .sources-container {
+        flex-direction: column;
+    }
+
+    .booking-container .container {
+        margin-bottom: 15%;
+    }
+
+    .tabsTour {
+        transform: translateX(-50%);
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        padding-bottom: 80px;
+        width: 90%;
+        height: 2150px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+        min-width: 240px;
+    }
+
+    .tabsTour .bookingTitles li label {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .tabsTour .bookingTitles li label span {
+        display: none;
+    }
+
+    .tabsTour .slider {
+        display: none;
+    }
+
+    .tabsTour .content {
+        margin-top: 20px;
     }
 }
 
@@ -2513,6 +2563,7 @@ h2 {
     margin: 0 auto;
     padding: 15px;
     padding-top: 30px;
+    display: block;
 }
 
 .marker-cali,
@@ -2579,5 +2630,9 @@ hr {
 
     .map-locations {
         display: block;
+    }
+
+    .hide-txt {
+        display: none;
     }
 }

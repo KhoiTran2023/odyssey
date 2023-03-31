@@ -885,37 +885,36 @@
     </div>
 
     <script>
-        $(document).ready(function () {
-            $(".hide-txt").hide();
-            $(".marker-cali").click(function () {
+        var minWidth = 500;
+        if ($(window).width() >= minWidth) {
+            $(document).ready(function () {
                 $(".hide-txt").hide();
-                $(".marker-cali-txt").toggle();
+                $(".marker-cali").click(function () {
+                    $(".hide-txt").hide();
+                    $(".marker-cali-txt").toggle();
+                });
+
+                $(".marker-texas").click(function () {
+                    $(".hide-txt").hide();
+
+                    $(".marker-texas-txt").toggle();
+                });
+
+                $(".marker-florida").click(function () {
+                    $(".hide-txt").hide();
+
+                    $(".marker-florida-txt").toggle();
+                });
+
+                $(".marker-east").click(function () {
+                    $(".hide-txt").hide();
+
+                    $(".marker-east-txt").toggle();
+                });
             });
-        });
+        }
 
-        $(document).ready(function () {
-            $(".marker-texas").click(function () {
-                $(".hide-txt").hide();
 
-                $(".marker-texas-txt").toggle();
-            });
-        });
-
-        $(document).ready(function () {
-            $(".marker-florida").click(function () {
-                $(".hide-txt").hide();
-
-                $(".marker-florida-txt").toggle();
-            });
-        });
-
-        $(document).ready(function () {
-            $(".marker-east").click(function () {
-                $(".hide-txt").hide();
-
-                $(".marker-east-txt").toggle();
-            });
-        });
     </script>
 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
