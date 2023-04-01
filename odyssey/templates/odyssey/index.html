@@ -119,7 +119,7 @@
     const testiwrapper = document.querySelector(".testiwrapper");
     const indicators = [...document.querySelectorAll(".indicators button")];
 
-    let currentTestimonial = 0; // Default 0
+    let currentTestimonial = 0;
 
     indicators.forEach((item, i) => {
         item.addEventListener("click", () => {
@@ -148,10 +148,10 @@
 <br>
 <br>
 
-<div class="fadeIn">
+<div class="fadeIn card-container">
     <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src="{% static 'odyssey/assets/orbital.jpg' %}" alt="Card image cap">
+        <div class="card mb-4">
+            <img class="card-img-top" src="{% static 'odyssey/assets/orbital.jpg' %}">
             <div class="card-body">
                 <h5 class="card-title"><b>$100k Orbital Tour</b></h5>
                 <div class="underlineSmallLeft"></div>
@@ -164,8 +164,8 @@
                 <a href="{% url 'register_param' checked=0 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'odyssey/assets/iss.jpg' %}" alt="Card image cap">
+        <div class="card mb-4">
+            <img class="card-img-top" src="{% static 'odyssey/assets/iss.jpg' %}">
             <div class="card-body">
                 <h5 class="card-title"><b>$200k ISS Tour</b></h5>
                 <div class="underlineSmallLeft"></div>
@@ -178,8 +178,9 @@
                 <a href="{% url 'register_param' checked=1 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
-        <div class="card">
-            <img class="card-img-top" src="{% static 'odyssey/assets/moon2.jpg' %}" alt="Card image cap">
+        <div class="w-100 d-none d-sm-block d-md-none"></div>
+        <div class="card mb-4">
+            <img class="card-img-top" src="{% static 'odyssey/assets/moon2.jpg' %}">
             <div class="card-body">
                 <h5 class="card-title"><b>$300k Moon Tour</b></h5>
                 <div class="underlineSmallLeft"></div>
@@ -190,7 +191,8 @@
                 <a href="{% url 'register_param' checked=2 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
-        <div class="card">
+        <div class="w-100 d-none d-md-block d-lg-none"></div>
+        <div class="card mb-4">
             <img class="card-img-top" src="{% static 'odyssey/assets/homePage2.jpg' %}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><b>$500k Deluxe Tour</b></h5>
@@ -201,6 +203,8 @@
                 <a href="{% url 'register_param' checked=3 %}" class="btn btn-primary small">Book now</a>
             </div>
         </div>
+        <div class="w-100 d-none d-sm-block d-md-none"></div>
+        <div class="w-100 d-none d-lg-block d-xl-none"></div>
     </div>
 </div>
 
@@ -209,8 +213,8 @@
 <br>
 <br>
 
-<div id="safety" class="training fadeIn">
-    <div class="trainingWords fadeIn">
+<div id="safety" class="safety-container fadeIn">
+    <div class="flex-child fadeIn">
         <br>
         <h4>ENSURING</h4>
         <h3><b>YOUR SAFETY</b></h4>
@@ -218,9 +222,9 @@
                 guarantee.
             </p>
     </div>
-
-    <img src="{% static 'odyssey/assets/nausicaSeatbelts.jpg' %}" width="100%">
-
+    <div class="flex-child" id="launch pic">
+        <img src="{% static 'odyssey/assets/nausicaSeatbelts.jpg' %}" width="100%">
+    </div>
 </div>
 
 <br>
@@ -461,8 +465,8 @@
 <br>
 <br>
 
-<div class="training">
-    <div class="trainingWords fadeIn">
+<div class="safety-container">
+    <div class="flex-child fadeIn" id="launch">
         <br>
         <h4>BUILT WITH</h4>
         <h3><b>YOU IN MIND</b></h4>
@@ -470,15 +474,17 @@
                 for launch. Our propellants are built with only the best materials and top-quality fuel to ensure a
                 smooth journey and release.</p>
     </div>
+    <div class="flex-child" id="recovery">
+        <img src="{% static 'odyssey/assets/launch3.jpg' %}" width="100%" class="fadeIn">
 
-    <img src="{% static 'odyssey/assets/launch3.jpg' %}" width="100%" class="fadeIn">
+    </div>
 </div>
 
-<div class="training">
-
-    <img src="{% static 'odyssey/assets/recovery5.jpg' %}" width="100%" class="fadeIn">
-
-    <div class="trainingWords fadeIn">
+<div class="safety-container">
+    <div class="flex-child" id="launch">
+        <img src="{% static 'odyssey/assets/recovery5.jpg' %}" width="100%" class="fadeIn">
+    </div>
+    <div class="flex-child fadeIn" id="recovery">
         <br>
         <h4>WELCOME</h4>
         <h3><b>BACK HOME</b></h4>
@@ -505,10 +511,7 @@
 <div class="container fadeIn">
     <div class="row">
         <div class="col-lg-9 mx-auto">
-            <!-- Accordion -->
             <div id="accordionExample" class="accordion">
-
-                <!-- Accordion item 1 -->
                 <div class="card">
                     <div id="headingOne" class="card-header bg-dark shadow-sm border-0">
                         <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseOne"
@@ -525,8 +528,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Accordion item 2 -->
                 <div class="card">
                     <div id="headingTwo" class="card-header bg-dark shadow-sm border-0">
                         <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -542,8 +543,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Accordion item 3 -->
                 <div class="card">
                     <div id="headingThree" class="card-header bg-dark shadow-sm border-0">
                         <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse"
@@ -576,18 +575,17 @@
 <br>
 <br>
 
-<div class="training">
-
-    <div class="trainingWords fadeIn">
+<div class="safety-container">
+    <div class="flex-child fadeIn">
         <br>
         <br>
         <h4>TAKE A STEP TOWARDS</h4>
         <h3><b>YOUR DREAMS</b></h4>
             <p><a href="{% url 'safety' %}">Book a tour now.</a></p>
     </div>
-
-    <img src="{% static 'odyssey/assets/nausicaAstronauts.jpg' %}" class="fadeIn">
-
+    <div class="flex-child" id="launch">
+        <img src="{% static 'odyssey/assets/nausicaAstronauts.jpg' %}" class="fadeIn">
+    </div>
 </div>
 
 <br>
