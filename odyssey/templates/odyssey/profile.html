@@ -19,6 +19,8 @@
             <div class="col-md-5 mb-3">
                 <div class="card">
                     <div class="card-body">
+                        <form method = "POST" action = "{% url 'edit_profile' %}">
+                        {% csrf_token %}
                         <div class="row">
                             <h2>Personal Information</h2>
                         </div>
@@ -28,7 +30,7 @@
                                 <h6 class="mb-0">First Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{user_info.first_name}}
+                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.first_name}}" name = "fname"/>
                             </div>
                         </div>
                         <hr>
@@ -37,7 +39,7 @@
                                 <h6 class="mb-0">Last Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{user_info.last_name}}
+                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.last_name}}" name = "lname"/>
                             </div>
                         </div>
                         <hr>
@@ -46,7 +48,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{user_info.email}}
+                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.email}}" name = "email"/>
                             </div>
                         </div>
                         <hr>
@@ -55,7 +57,7 @@
                                 <h6 class="mb-0">Birthday</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{account.birthday}}
+                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{account.birthday}}" name = "birthday"/>
                             </div>
                         </div>
                         <hr>
@@ -64,13 +66,45 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{account.residentialAddress}}
+                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{account.residentialAddress}}" name = "address"/>
                             </div>
                         </div>
-
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Social Security</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class = "reset-styling text-secondary" type = "password" style = "all:initial;"value = "{{account.socialSecurity}}" name = "ssn"/>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Security Answer</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class = "reset-styling text-secondary" type = "password" style = "all:initial;"value = "{{account.securityAnswer1}}" name = "security"/>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Enter Password to Change Info</h6>
+                            </div>
+                            <div class="col-sm-9 text-primary">
+                                <input class = "reset-styling text-primary" type = "password" style = "all:initial;" name = "conf_password"/>
+                            </div>
+                        </div>
+                        <br>
+                        {% if function_message %}
+                            <div class = "alert alert-primary">{{function_message}}</div>
+                        {% endif %}
+                        <br>
+                        <button class = "btn btn-primary" type = "submit">Confirm Info</button>
+                        </form>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-6">
                 <div class="card mb-3">
@@ -85,12 +119,20 @@
                                     <div class="ticket-preview">
                                         <h6># of Passengers: {{order.numTickets}}</h6>
                                         <br>
+                                        {% if order.tourChoice != "undefined" %}
                                         <h2><b>{{order.tourChoice}}</b></h2>
+                                        {% else %}
+                                        <h2><b>Next Available</b></h2>
+                                        {% endif %}
                                     </div>
                                     <div class="ticket-info">
                                         <h4>Departure: {{order.depart_date}}</h4>
                                         <br>
                                         <h6>Thank you for choosing to fly with Odyssey.</h6>
+                                        <br>
+                                        <h6>STATUS: {{order.status}}</h6>
+                                        <br>
+                                        <h6>Payment Method: {{order.payment}}</h6>
                                     </div>
                                 </div>
                                 {% endfor %}

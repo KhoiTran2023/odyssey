@@ -58,7 +58,7 @@ class Order(models.Model):
         return f"{self.date} {self.account} {self.tourChoice}"
 
 class LoginPing(models.Model):
-    user= models.ForeignKey(User, on_delete = models.RESTRICT)
+    user= models.ForeignKey(User, on_delete = models.CASCADE)
     pingType = models.CharField(max_length = 16, null = True, default = "Admin Login")
     date= models.DateTimeField(auto_now_add= True)
 

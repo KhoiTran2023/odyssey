@@ -69,6 +69,9 @@ def register_view(request):
     if request.method == "POST":
         #add functionality and json response
         paymentChoice = Payment.objects.get(account = request.user, cardName = request.POST.get("cardSelection"))
+        tour_choice = request.POST.get("tourChoice")
+        if tour_choice is None:
+            tour_choice = "Next Available Tour"
         o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date = datetime.strptime(request.POST.get("tickets_date"), "%Y-%m-%d") + timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
         o.save()
         print(o)
@@ -92,13 +95,50 @@ def profile(request):
         return HttpResponseRedirect(reverse("registration"))
     account = Account.objects.get(user = request.user)
     payment_methods = Payment.objects.filter(account = request.user)
-    orders = Order.objects.filter(account = request.user)
+    orders = Order.objects.filter(account = request.user).order_by('depart_date')
     context = {
         "account":account,
         "payments":payment_methods,
         "orders":orders,
         "user_info":request.user
     }
+    return render(request, "odyssey/profile.html", context)
+
+@login_required
+def edit_profile(request):
+    account = Account.objects.get(user = request.user)
+    payment_methods = Payment.objects.filter(account = request.user)
+    orders = Order.objects.filter(account = request.user).order_by('depart_date')
+    if request.method == "POST":
+        if request.user.check_password(request.POST["conf_password"]):
+            u = request.user
+            account.birthday = request.POST["birthday"]
+            account.socialSecurity = request.POST["ssn"]
+            account.residentialAddress = request.POST["address"]
+            account.securityAnswer1 = request.POST["security"]
+            u.first_name = request.POST["fname"]
+            u.last_name = request.POST["lname"]
+            u.email = request.POST["email"]
+            u.save()
+            account.save()
+            context = {
+                "function_message":"Success! Profile Saved.",
+                "account":account,
+                "payments":payment_methods,
+                "orders":orders,
+                "user_info":request.user
+            }
+            return render(request, "odyssey/profile.html", context)
+        context = {
+            "account":account,
+            "payments":payment_methods,
+            "orders":orders,
+            "user_info":request.user,
+            "function_message":"You entered an invalid password. Try again."
+        }
+    return render(request, "odyssey/profile.html", context)
+
+def update_billing(request):
     return render(request, "odyssey/profile.html", context)
 
 def registration_view(request):

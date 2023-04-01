@@ -19,4 +19,5 @@ urlpatterns = [
     path('registration', views.registration_view, name="registration"),
     path('fetch_url/', views.fetch_url, name="fetch_url"),
     path('add-payment', views.add_payment,name = "add_payment"),
+    path('edit-profile', views.edit_profile, name = "edit_profile"),
 ]
