@@ -59,7 +59,6 @@ def add_payment(request):
         #add functionality and json response
         p = Payment(cardName = request.POST.get("cc-nn"),firstNameBill = request.POST.get("bfname"), lastNameBill = request.POST.get("blname"), inputAddress = request.POST.get("baddress"), inputCity = request.POST.get("bcity"), inputState = request.POST.get("bstate"), inputZip = request.POST.get("bzip"), paymentMethod = request.POST.get("paymentMethod"),cc_name = request.POST.get("cc-name"), cc_number = request.POST.get("cc-num"), cc_expiration = request.POST.get("cc-exp"), cc_cvv = request.POST.get("cc-cvv"), account = request.user)
         p.save()
-        print(p)
         messages.success(
             request, "Payment Method Added")
         return JsonResponse({'status': 'success'})
@@ -138,8 +137,22 @@ def edit_profile(request):
         }
     return render(request, "odyssey/profile.html", context)
 
-def update_billing(request):
-    return render(request, "odyssey/profile.html", context)
+def edit_payments(request):
+    if request.method == "POST":
+        p = Payment(cardName = request.POST.get("cc-nn"),firstNameBill = request.POST.get("bfname"), lastNameBill = request.POST.get("blname"), inputAddress = request.POST.get("baddress"), inputCity = request.POST.get("bcity"), inputState = request.POST.get("bstate"), inputZip = request.POST.get("bzip"), paymentMethod = request.POST.get("paymentMethod"),cc_name = request.POST.get("cc-name"), cc_number = request.POST.get("cc-num"), cc_expiration = request.POST.get("cc-exp"), cc_cvv = request.POST.get("cc-cvv"), account = request.user)
+        p.save()
+        account = Account.objects.get(user = request.user)
+        payment_methods = Payment.objects.filter(account = request.user)
+        orders = Order.objects.filter(account = request.user).order_by('depart_date')
+        context = {
+                    "function_message":"Success! Payments Updated.",
+                    "account":account,
+                    "payments":payment_methods,
+                    "orders":orders,
+                    "user_info":request.user
+                }
+        return render(request, "odyssey/profile.html", context)
+    return HttpResponseRedirect(reverse("profile"))
 
 def registration_view(request):
     return render(request, "odyssey/registration.html")
