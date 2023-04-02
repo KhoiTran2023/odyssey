@@ -29,6 +29,14 @@ def safety(request):
 def contact_us(request):
     return render(request, "odyssey/contactus.html")
 
+def contact_us_send(request):
+    if request.method == "POST":
+        h = HelpTicket(email = request.POST["email"], subject = request.POST["subject"], question = request.POST["question"])
+        h.save()
+        messages.success("message sent")
+        return render(request, "odyssey/contactus.html", context = {"message_success":"message sent! check your message center in your profile in 24 hours!"})
+    return HttpResponseRedirect(reverse("contact_us"))
+
 
 def error(request):
     return render(request, "odyssey/error.html")

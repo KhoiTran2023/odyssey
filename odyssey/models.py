@@ -29,7 +29,7 @@ class Payment(models.Model):
     account = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.cardName}"
+        return f"{self.cc_name}"
 
 STATUS_CHOICES = (
     ("pending", "pending"),
@@ -64,3 +64,12 @@ class LoginPing(models.Model):
 
     def __str__(self):
         return str(self.user) + " " + str(self.pingType) + ': ' + str(self.date)
+    
+class HelpTicket(models.Model):
+    email = models.EmailField()
+    subject = models.TextField()
+    question = models.TextField()
+    account = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.email}: {self.subject}"

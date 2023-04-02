@@ -9,6 +9,7 @@ urlpatterns = [
     path('register/<int:checked>', views.register_param ,name = "register_param"),
     path('register/submit', views.register_view, name='submitOrder'),
     path('contact_us', views.contact_us, name='contact us'),
+    path('contact_us/send', views.contact_us_send, name = 'contact_send'),
     path('sources', views.sources, name='sources'),
     path('error', views.error, name="error"),
     path('create-account/', views.create_account, name="create_account"),
