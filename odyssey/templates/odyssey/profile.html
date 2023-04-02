@@ -20,109 +20,118 @@
                 <div class="card">
                     <div class="card-body">
                         {% if function_message %}
-                        <div class = "alert alert-primary">{{function_message}}</div>
-                    {% endif %}
-                        <form method = "POST" action = "{% url 'edit_profile' %}">
-                        {% csrf_token %}
-                        <div class="row">
-                            <h2>Personal Information</h2>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">First Name</h6>
+                        <div class="alert alert-primary">{{function_message}}</div>
+                        {% endif %}
+                        <form method="POST" action="{% url 'edit_profile' %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <h2>Personal Information</h2>
                             </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.first_name}}" name = "fname"/>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">First Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" value="{{user_info.first_name}}"
+                                        name="fname" />
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Last Name</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Last Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" value="{{user_info.last_name}}"
+                                        name="lname" />
+                                </div>
                             </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.last_name}}" name = "lname"/>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" value="{{user_info.email}}"
+                                        name="email" />
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Email</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Birthday</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" value="{{account.birthday}}"
+                                        name="birthday" />
+                                </div>
                             </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{user_info.email}}" name = "email"/>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Address</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" value="{{account.residentialAddress}}"
+                                        name="address" />
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Birthday</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Social Security</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" type="password"
+                                        value="{{account.socialSecurity}}" name="ssn" />
+                                </div>
                             </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{account.birthday}}" name = "birthday"/>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Security Answer</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input class="reset-styling text-secondary" type="password"
+                                        value="{{account.securityAnswer1}}" name="security" />
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Address</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Enter Password to Change Info</h6>
+                                </div>
+                                <div class="col-sm-9 text-primary">
+                                    <input class="reset-styling text-primary" type="password" name="conf_password" />
+                                </div>
                             </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" style = "all:initial;"value = "{{account.residentialAddress}}" name = "address"/>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Social Security</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" type = "password" style = "all:initial;"value = "{{account.socialSecurity}}" name = "ssn"/>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Security Answer</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input class = "reset-styling text-secondary" type = "password" style = "all:initial;"value = "{{account.securityAnswer1}}" name = "security"/>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Enter Password to Change Info</h6>
-                            </div>
-                            <div class="col-sm-9 text-primary">
-                                <input class = "reset-styling text-primary" type = "password" style = "all:initial;" name = "conf_password"/>
-                            </div>
-                        </div>
-                        <br>
-                        <button class = "btn btn-primary btn-sm" type = "submit">Confirm Info</button>
+                            <br>
+                            <button class="btn-sm submit-btn" type="submit">Confirm Info</button>
                         </form>
                     </div>
                 </div>
-                <div class = "card">
-                    <div class = "card-body">
+                <div class="card">
+                    <div class="card-body">
                         <div class="row">
-                            <h2>Payments</h2>
-                            <br>
+                            <h2>Saved Payment Methods</h2>
                         </div>
+                        <br>
                         {% for payment in payments %}
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                                 <h6 class="mb-0">{{payment.cc_name}}</h6>
                             </div>
-                            <div class="col-sm-7 text-secondary">
+                            <div class="col-sm-4 text-secondary">
                                 {{payment.paymentMethod}} {{payment.cc_expiration}}
                             </div>
                         </div>
+                        <hr>
                         {% endfor %}
-                        <br>
-                        <button id = "toggler" class = "btn btn-secondary btn-sm" onclick = "toggleNewPayment()">+Add New</button>
-                        <form style = "display:none;" id = "addNewPaymentProfile" method = "POST" action = "{% url 'edit_payments' %}">
+                        <button id="toggler" class="submit-btn btn-sm" onclick="toggleNewPayment()">+Add
+                            New</button>
+                        <form style="display:none;" id="addNewPaymentProfile" method="POST"
+                            action="{% url 'edit_payments' %}">
                             {% csrf_token %}
                             <div class="row">
                                 <h2>Add Payment</h2>
@@ -133,7 +142,7 @@
                                     <h6 class="mb-0">Card Nickname</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "cc-name" required/>
+                                    <input class="reset-styling text-secondary" name="cc-name" required />
                                 </div>
                             </div>
                             <hr>
@@ -142,7 +151,7 @@
                                     <h6 class="mb-0">First Name</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "bfname" required/>
+                                    <input class="reset-styling text-secondary" name="bfname" required />
                                 </div>
                             </div>
                             <hr>
@@ -151,7 +160,7 @@
                                     <h6 class="mb-0">Last Name</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "blname" required/>
+                                    <input class="reset-styling text-secondary" name="blname" required />
                                 </div>
                             </div>
                             <hr>
@@ -160,7 +169,7 @@
                                     <h6 class="mb-0">Address</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "baddress" required/>
+                                    <input class="reset-styling text-secondary" name="baddress" required />
                                 </div>
                             </div>
                             <hr>
@@ -169,7 +178,7 @@
                                     <h6 class="mb-0">City</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "bcity" required/>
+                                    <input class="reset-styling text-secondary" name="bcity" required />
                                 </div>
                             </div>
                             <hr>
@@ -239,7 +248,7 @@
                                     <h6 class="mb-0">Zip Code</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "bzip" required/>
+                                    <input class="reset-styling text-secondary" name="bzip" required />
                                 </div>
                             </div>
                             <hr>
@@ -260,7 +269,7 @@
                                     <h6 class="mb-0">Card Provider</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "cc-nn" required/>
+                                    <input class="reset-styling text-secondary" name="cc-nn" required />
                                 </div>
                             </div>
                             <hr>
@@ -269,7 +278,7 @@
                                     <h6 class="mb-0">Card Number</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "cc-num" required/>
+                                    <input class="reset-styling text-secondary" name="cc-num" required />
                                 </div>
                             </div>
                             <hr>
@@ -278,7 +287,7 @@
                                     <h6 class="mb-0">Card Expiration</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "cc-exp" required/>
+                                    <input class="reset-styling text-secondary" name="cc-exp" required />
                                 </div>
                             </div>
                             <hr>
@@ -287,17 +296,17 @@
                                     <h6 class="mb-0">CVV</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input class = "reset-styling text-secondary" style = "all:initial;" name = "cc-cvv" required/>
+                                    <input class="reset-styling text-secondary" name="cc-cvv" required />
                                 </div>
                             </div>
                             <hr>
-                            <button class = "btn btn-primary btn-sm" type = "submit">Add</button>
+                            <button class="btn btn-primary btn-sm" type="submit">Add</button>
                         </form>
                     </div>
                 </div>
             </div>
             <script>
-                function toggleNewPayment(){
+                function toggleNewPayment() {
                     document.getElementById("addNewPaymentProfile").style.display = "block";
                     document.getElementById("toggler").style.display = "none";
                 }
