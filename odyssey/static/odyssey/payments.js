@@ -55,6 +55,9 @@ function toggleAddNewPayment() {
 
 function addNewPayment() {
     const formData = new FormData(npForm);
+    //const successConfirmation = document.getElementById("success-conf");
+    //successConfirmation.classList.toggle("confirming");
+    //setTimeout(() => { }, 5000);
 
     fetch('/add-payment', {
         method: 'POST',
