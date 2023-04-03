@@ -69,7 +69,7 @@ class HelpTicket(models.Model):
     email = models.EmailField()
     subject = models.TextField()
     question = models.TextField()
-    account = models.ForeignKey(User, on_delete=models.CASCADE)
+    account = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
 
     def __str__(self):
         return f"{self.email}: {self.subject}"

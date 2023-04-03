@@ -49,7 +49,8 @@
 {% else %}
 
 <div class="contactus-container">
-    <form>
+    <form method = "POST" action = "{% url 'contact_send' %}">
+        {% csrf_token %}
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="row">
@@ -73,19 +74,19 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                    <input type="email" name = "email" class="form-control" id="exampleFormControlInput1"
                         placeholder="johndoe@example.com">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Subject</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                    <input type="text" name = "subject" class="form-control" id="exampleFormControlInput1"
                         placeholder="Adding another person to my trip">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Please elaborate on your question</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea name = "question" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <br>
                 <br>
