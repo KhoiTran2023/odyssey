@@ -1517,7 +1517,6 @@ button.active {
 
 /*login form styling */
 #login-form {
-    /*background-image: url("assets/blueprint.jpg");*/
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(1rem);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -1578,9 +1577,6 @@ button.active {
 }
 
 #create-acc-form {
-    /*background-image: url("assets/blueprint.jpg");
-    background-position: center;
-    background-size:cover;*/
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(1rem);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
