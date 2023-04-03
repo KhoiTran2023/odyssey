@@ -83,7 +83,11 @@ def register_view(request):
         tour_choice = request.POST.get("tourChoice")
         if tour_choice is None:
             tour_choice = "Next Available Tour"
-        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date = datetime.strptime(request.POST.get("tickets_date"), "%Y-%m-%d") + timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
+        tickets_date = datetime.strptime(request.POST.get("tickets_date"), "%Y-%m-%d")
+        if tickets_date is None:
+            tickets_date = datetime.now()
+        tickets_date += timedelta(days = 64)
+        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date = tickets_date,numTickets = request.POST.get("num_tickets"))
         o.save()
         print(o)
         messages.success(
