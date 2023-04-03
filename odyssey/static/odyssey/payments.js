@@ -28,6 +28,10 @@ function submitPayment() {
 
     const formData = new FormData(orderForm);
 
+    //const successConfirmation = document.getElementById("success-conf");
+    //successConfirmation.classList.toggle("confirming");
+    //setTimeout(() => { }, 5000);
+
     fetch('/register/submit', {
         method: 'POST',
         body: formData
@@ -55,9 +59,6 @@ function toggleAddNewPayment() {
 
 function addNewPayment() {
     const formData = new FormData(npForm);
-    //const successConfirmation = document.getElementById("success-conf");
-    //successConfirmation.classList.toggle("confirming");
-    //setTimeout(() => { }, 5000);
 
     fetch('/add-payment', {
         method: 'POST',
