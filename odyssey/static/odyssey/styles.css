@@ -375,8 +375,8 @@ video {
 }
 
 .parallaxOrder {
-    background-image: url("assets/homePage2.jpg");
-    min-height: 350px;
+    background-image: url("assets/space.jpg");
+    min-height: 250px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -393,7 +393,7 @@ video {
 }
 
 #downIndicator {
-    margin-top: 280px;
+    margin-top: 170px;
     margin-left: 48%;
     animation: bounce 2s;
     animation-delay: 0.5s;
@@ -1155,6 +1155,7 @@ button.active {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    align-items: center;
 }
 
 .nausica-container .flex-child {
@@ -3269,7 +3270,7 @@ hr {
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     padding: 30px;
-    width: 100%;
+    width: 95%;
 }
 
 .payment-container {
