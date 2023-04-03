@@ -122,6 +122,7 @@ def edit_profile(request):
     account = Account.objects.get(user = request.user)
     payment_methods = Payment.objects.filter(account = request.user)
     orders = Order.objects.filter(account = request.user).order_by('depart_date')
+    message_center = HelpTicket.objects.filter(account = request.user).order_by('-id')
     if request.method == "POST":
         if request.user.check_password(request.POST["conf_password"]):
             u = request.user
@@ -135,6 +136,7 @@ def edit_profile(request):
             u.save()
             account.save()
             context = {
+                "message_center":message_center,
                 "function_message":"Success! Profile Saved.",
                 "account":account,
                 "payments":payment_methods,
@@ -143,6 +145,7 @@ def edit_profile(request):
             }
             return render(request, "odyssey/profile.html", context)
         context = {
+            "message_center":message_center,
             "account":account,
             "payments":payment_methods,
             "orders":orders,
@@ -157,9 +160,11 @@ def edit_payments(request):
         p.save()
         account = Account.objects.get(user = request.user)
         payment_methods = Payment.objects.filter(account = request.user)
+        message_center = HelpTicket.objects.filter(account = request.user).order_by('-id')
         orders = Order.objects.filter(account = request.user).order_by('depart_date')
         context = {
                     "function_message":"Success! Payments Updated.",
+                    "message_center":message_center,
                     "account":account,
                     "payments":payment_methods,
                     "orders":orders,
