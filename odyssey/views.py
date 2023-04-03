@@ -37,7 +37,7 @@ def contact_us_send(request):
     if request.method == "POST":
         h = HelpTicket(email = request.POST["email"], subject = request.POST["subject"], question = request.POST["question"], account = request.user)
         h.save()
-        messages.success("message sent")
+        messages.success(request, "message sent")
         return render(request, "odyssey/contactus.html", context = {"message_success":"message sent! check your message center in your profile in 24 hours!"})
     return HttpResponseRedirect(reverse("contact_us"))
 
@@ -107,11 +107,13 @@ def profile(request):
     account = Account.objects.get(user = request.user)
     payment_methods = Payment.objects.filter(account = request.user)
     orders = Order.objects.filter(account = request.user).order_by('depart_date')
+    message_center = HelpTicket.objects.filter(account = request.user).order_by('-id')
     context = {
         "account":account,
         "payments":payment_methods,
         "orders":orders,
-        "user_info":request.user
+        "user_info":request.user,
+        "message_center":message_center,
     }
     return render(request, "odyssey/profile.html", context)
 

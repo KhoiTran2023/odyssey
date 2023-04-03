@@ -374,19 +374,30 @@
         </section>
         <section>
             <div class="messages-container">
+                {% for m in message_center %}
                 <div class="message">
-                    <h5><b>Subject: </b>halp</h5>
-                    <h6><b>Email: </b>email@email.com</h6>
+                    <h5><b>Subject: </b>{{m.subject}}</h5>
+                    <h6><b>From: </b>{{m.email}}</h6>
                     <div class="underline"></div>
                     <br>
-                    <p>i am requesting help.</p>
+                    <button class="btn submit-btn btn-sm" onclick = "expandMessage(this);" type="button">Read more</button>
                     <br>
-                    <button class="btn submit-btn btn-sm" type="submit">Read more</button>
+                    <p style = "display:none;">{{m.question}}</p>
                 </div>
+                <br>
+                {% endfor %}
             </div>
         </section>
     </div>
 </div>
+<script>
+    function expandMessage(element) {
+        var parent = element.parentElement;
+        var expandedElement = parent.lastElementChild;
+        expandedElement.style.display = "block";
+        element.style.display = "none";
+    }
+</script>
 
 <br>
 <br>
