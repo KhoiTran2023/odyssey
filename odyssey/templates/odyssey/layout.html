@@ -306,17 +306,17 @@
                 <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
                 <p class="text-muted mb-4">Still unsure about your trip? No worries! Sign up for our newsletter and
                     receive monthly updates about our space program.</p>
-
-                <div class="input-group">
                     <form method = "POST" action = "{% url 'newsletter' %}">
+                <div class="input-group">
+                        {% csrf_token %}
                     <input type="email" name = "email-address" placeholder="Enter your email address" aria-describedby="button-addon1"
                         class="form-control border-0 shadow-0">
                     <div class="input-group-append">
                         <button id="button-addon1" type="submit" class="btn btn-link border-light"><i
                                 class="fa fa-paper-plane"></i></button>
                     </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
     </div>
