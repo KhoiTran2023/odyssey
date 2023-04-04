@@ -41,6 +41,12 @@ def contact_us_send(request):
         return render(request, "odyssey/contactus.html", context = {"message_success":"message sent! check your message center in your profile in 24 hours!"})
     return HttpResponseRedirect(reverse("contact_us"))
 
+def newsletter(request):
+    if request.method == "POST":
+        m = MailingList(emailAddress = request.POST["email-address"])
+        m.save()
+    return HttpResponseRedirect(reverse("index"))
+
 
 def error(request):
     return render(request, "odyssey/error.html")

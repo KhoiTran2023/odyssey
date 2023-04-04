@@ -73,3 +73,8 @@ class HelpTicket(models.Model):
 
     def __str__(self):
         return f"{self.email}: {self.subject}"
+    
+class MailingList(models.Model):
+    emailAddress = models.EmailField()
+    def __str__(self):
+        return f"{self.emailAddress}"
