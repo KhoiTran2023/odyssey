@@ -95,7 +95,8 @@
                 <br>
                 <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
                 <br>
-                <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
+                <button class="btn btn-outline-light" onclick="submitPayment(), toggleSavedToPay()" data-toggle="modal"
+                    type="button" data-target="#exampleModalCenter">Lock In</button>
             </div>
         </form>
         <form id="add-payment-form">
@@ -1109,6 +1110,33 @@
 
 <p class="centeredText text fadeIn">Feel free to <a href="{% url 'contact us' %}">contact us</a> if you have any other
     questions.</p>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="font-family: 'Poppins', sans-serif; color: white;
+        border-radius: 25px;
+        background: rgba( 255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Congratulations! Your booking was a success!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: whitesmoke">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please head towards your profile page to view all your
+                tickets.
+                <br>
+                <br>
+                Thank you for choosing to fly with Odyssey.
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
 <br>
