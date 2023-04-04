@@ -45,7 +45,7 @@ class Order(models.Model):
     tourChoice = models.CharField(max_length = 64)
     payment = models.ForeignKey(Payment, on_delete = models.CASCADE)
     account = models.ForeignKey(User, on_delete = models.CASCADE)
-    depart_date = models.DateField(auto_now_add = True)
+    depart_date = models.DateField(default = datetime.date.today + timedelta(days = 64))
     numTickets = models.IntegerField(default = 1)
     status = models.CharField(
         max_length = 20,
