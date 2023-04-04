@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import random
 import json
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 
 # Page rendering
 
@@ -89,7 +89,10 @@ def register_view(request):
         tour_choice = request.POST.get("tourChoice")
         if tour_choice is None:
             tour_choice = "Next Available Tour"
-        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date =datetime.strptime(request.POST.get("tickets_date"), "%Y-%m-%d")+timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
+        tickets_date_request = request.POST.get("tickets_date")
+        if request.POST.get("tickets_date") is None:
+            tickets_date_request = date.today()
+        o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date =datetime.strptime(tickets_date_request, "%Y-%m-%d")+timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
         o.save()
         print(o)
         messages.success(
