@@ -26,14 +26,7 @@ function  submitLogin() {
         loginStatus.style.display = "inline-block";
         loginStatus.classList.add("alert-success");
         loginStatus.innerHTML = 'You are logged in. Redirecting...';
-        setTimeout(() => {fetch('/fetch_url/')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Use the fetched URL to redirect the page
-            window.location.href = data.url1;
-        })
-        .catch(error => console.error(error));
+        setTimeout(() => {location.reload();
         }, 2000);
         //change this to redirect to profile center
     } else {
