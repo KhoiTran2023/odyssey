@@ -279,6 +279,7 @@ nav {
     backdrop-filter: blur(4px);
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .card-deck .card:hover {
@@ -490,6 +491,7 @@ i {
     width: 800px;
     min-height: 100%;
     background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -1173,6 +1175,7 @@ button.active {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 50px;
     padding-bottom: 80px;
     width: 70%;
@@ -1409,6 +1412,7 @@ button.active {
         position: relative;
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         padding: 50px;
         padding-bottom: 80px;
         width: 70%;
@@ -1505,6 +1509,7 @@ button.active {
     border: none;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .card h6 {
@@ -1579,6 +1584,7 @@ button.active {
 #create-acc-form {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     position: fixed;
     z-index: 902;
@@ -1957,6 +1963,7 @@ h4 {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 50px;
     padding-bottom: 80px;
     width: 90%;
@@ -2185,6 +2192,7 @@ h4 {
         position: relative;
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
@@ -2242,6 +2250,7 @@ h4 {
         position: relative;
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
@@ -2285,6 +2294,7 @@ h4 {
         position: relative;
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         padding: 10px;
         padding-bottom: 80px;
         width: 90%;
@@ -2964,6 +2974,7 @@ hr {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 50px;
     padding-bottom: 80px;
     width: 70%;
@@ -3200,6 +3211,7 @@ hr {
         position: relative;
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         padding: 50px;
         padding-bottom: 80px;
         width: 70%;
