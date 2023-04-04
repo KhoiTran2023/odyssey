@@ -90,7 +90,7 @@ def register_view(request):
         if tour_choice is None:
             tour_choice = "Next Available Tour"
         tickets_date_request = request.POST.get("tickets_date")
-        if request.POST.get("tickets_date") is None:
+        if request.POST.get("tickets_date") == "":
             tickets_date_request = date.today()
         o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date =datetime.strptime(tickets_date_request, "%Y-%m-%d")+timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
         o.save()
