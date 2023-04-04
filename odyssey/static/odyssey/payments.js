@@ -84,3 +84,15 @@ function changeDate(departDate) {
     var value = departDate.value;
     document.getElementById("tickets-date").value = value;
 }
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    var now = new Date();
+    var month = (now.getMonth() + 1);               
+    var day = now.getDate();
+    if (month < 10) {
+        month = "0" + month;}
+    if (day < 10) {
+        day = "0" + day;}
+    var today = now.getFullYear() + '-' + month + '-' + day;
+    document.getElementById("tickets-date").value = today;
+});

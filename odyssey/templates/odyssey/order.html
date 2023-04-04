@@ -98,23 +98,6 @@
                 <button class="btn btn-outline-light" onclick="submitPayment()">Lock In</button>
             </div>
         </form>
-        <script>
-            function getDate() {
-                var now = new Date();
-                var month = (now.getMonth() + 1);               
-                var day = now.getDate();
-                if (month < 10) {
-                    month = "0" + month;}
-                if (day < 10) {
-                    day = "0" + day;}
-                var today = now.getFullYear() + '-' + month + '-' + day;
-                document.getElementById("tickets-date").value = today;
-                }
-
-                window.onload = function() {
-                getDate();
-            };
-        </script>
         <form id="add-payment-form">
             {% csrf_token %}
             <h2>Add A New Payment</h2>
