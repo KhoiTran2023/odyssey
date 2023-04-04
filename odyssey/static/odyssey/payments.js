@@ -38,7 +38,6 @@ function submitPayment() {
     })
         .then(response => {
             if (response.status === 200) {
-                location.reload();
             } else {
             }
         })
