@@ -1125,7 +1125,7 @@ button.active {
     background-color: #404040;
     color: whitesmoke;
     align-self: flex-end;
-    margin-left: 20px;
+    margin-right: 10px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -1133,7 +1133,7 @@ button.active {
     background-color: #f1f1f1;
     color: black;
     align-self: flex-start;
-    margin-right: 10px;
+    margin-left: 20px;
     font-family: "Poppins", sans-serif;
 }
 
