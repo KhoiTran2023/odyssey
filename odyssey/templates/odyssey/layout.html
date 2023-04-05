@@ -310,6 +310,12 @@
                 <div class="input-group">
                     <input id = "newsletter-input" type="email" placeholder="Enter your email address" aria-describedby="button-addon1"
                         class="form-control border-0 shadow-0">
+                        <script>
+                            function newsletterClear() {
+                            document.getElementById("newsletter-input").value = "";
+                            setTimeout(() => {location.reload();}, 1000);
+                        }
+                        </script>
                     <div class="input-group-append">
                         <button id="button-addon1" type="button" onclick = "newsletterClear();"class="btn btn-link border-light"><i
                                 class="fa fa-paper-plane"></i></button>
@@ -319,11 +325,5 @@
         </div>
     </div>
 </footer>
-<script>
-    function newsletterClear() {
-    document.getElementById("newsletter-input").value = "";
-    setTimeout(() => {location.reload();}, 1000);
-}
-</script>
 
 </html>
