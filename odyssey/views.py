@@ -45,6 +45,7 @@ def newsletter(request):
     if request.method == "POST":
         m = MailingList(emailAddress = request.POST["email-address"])
         m.save()
+        return HttpResponseRedirect(reverse("index"))
     return HttpResponseRedirect(reverse("index"))
 
 
