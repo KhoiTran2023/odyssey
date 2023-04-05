@@ -51,3 +51,8 @@ function fadeIn() {
         }
     }
 }
+
+function newsletterClear() {
+    document.getElementById("newsletter-input").value = "";
+    setTimeout(() => {location.reload();}, 2000);
+}
