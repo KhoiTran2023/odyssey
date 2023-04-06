@@ -1,7 +1,6 @@
 const popupForm = document.getElementById("payment-form-popup");
 const orderForm = document.getElementById("orderForm");
 const npForm = document.getElementById("add-payment-form");
-popupForm.style.display = "none";
 
 function toggleSavedToPay() {
     if (popupForm.style.display == "none") {

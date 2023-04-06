@@ -74,7 +74,7 @@
         </ul>
         <form id="orderForm">
             {% csrf_token %}
-            <div id="payment-form-popup" class="payment-form-popup">
+            <div id="payment-form-popup" style = "display:none;"class="payment-form-popup">
                 <input id="Individual-Value" value="Orbital Space Tour" name="tourChoice" style="display:none;" />
                 <input id="num-tickets" type="number" value="1" name="num_tickets" style="display:none;" />
                 <input id="tickets-date" type="date" name="tickets_date" style="display:none;" />
