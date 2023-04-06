@@ -1143,13 +1143,14 @@
     padding: 20px;">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Congratulations! Your booking was a success!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: whitesmoke">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: whitesmoke" onclick = "location.reload();">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 Please head towards your profile page to view all your
                 tickets.
+                <a href = "{% url 'profile' %}">Click here to view tickets</a>
                 <br>
                 <br>
                 Thank you for choosing to fly with Odyssey.

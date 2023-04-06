@@ -33,12 +33,12 @@ def contact_us_send(request):
     if not request.user.is_authenticated:
         h = HelpTicket(email = request.POST["email"], subject = request.POST["subject"], question = request.POST["question"])
         h.save()
-        return render(request, "odyssey/contactus.html", context = {"message_success":"message sent! check your message center in your profile in 24 hours!"})
+        return render(request, "odyssey/contactus.html", context = {"message_success":"Message sent! Check your message center in your profile in 24 hours!"})
     if request.method == "POST":
         h = HelpTicket(email = request.POST["email"], subject = request.POST["subject"], question = request.POST["question"], account = request.user)
         h.save()
         messages.success(request, "message sent")
-        return render(request, "odyssey/contactus.html", context = {"message_success":"message sent! check your message center in your profile in 24 hours!"})
+        return render(request, "odyssey/contactus.html", context = {"message_success":"Message sent! Check your message center in your profile in 24 hours!"})
     return HttpResponseRedirect(reverse("contact_us"))
 
 def error(request):
@@ -83,8 +83,8 @@ def register_view(request):
         if tour_choice is None:
             tour_choice = "Next Available Tour"
         tickets_date_request = request.POST.get("tickets_date")
-        if request.POST.get("tickets_date") == "":
-            tickets_date_request = date.today()
+        if str(tickets_date_request) == "":
+            tickets_date_request = str(date.today())
         o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date =datetime.strptime(tickets_date_request, "%Y-%m-%d")+timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
         o.save()
         print(o)
