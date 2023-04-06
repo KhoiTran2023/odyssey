@@ -95,8 +95,19 @@
                 <br>
                 <a id="add-new-payment" onclick="toggleAddNewPayment()">+ Add new</a><br>
                 <br>
-                <button class="btn btn-outline-light" onclick="submitPayment(), toggleSavedToPay()" data-toggle="modal"
-                    type="button" data-target="#exampleModalCenter">Lock In</button>
+                <!--<button class="btn button-loading btn-outline-light" onclick="submitPayment(), toggleSavedToPay()"
+                    data-toggle="modal" type="button" data-target="#exampleModalCenter"><span class="button-text">Lock
+                        In</span></button>-->
+                <button type="button" class="button" onclick="this.classList.toggle('button--loading'), submitPayment()"
+                    data-toggle="modal" data-target="#exampleModalCenter">
+                    <span class="button__text">Lock In</span>
+                </button>
+                <script>
+                    const btn = document.querySelector(".button");
+
+                    btn.classList.add("button--loading");
+                    btn.classList.remove("button--loading");
+                </script>
             </div>
         </form>
         <form id="add-payment-form">

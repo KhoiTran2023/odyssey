@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins&display=swap');
 
+
 html {
     scroll-behavior: smooth;
 }
@@ -327,6 +328,16 @@ video {
     background-size: cover;
 }
 
+@media (max-width: 500px) {
+    .parallaxIndex {
+        background-image: url("assets/homePageMobile.jpg");
+        min-height: 300px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
 
 .parallaxGradient {
     background-image: url("assets/space.jpg");
@@ -1125,7 +1136,7 @@ button.active {
     background-color: #404040;
     color: whitesmoke;
     align-self: flex-end;
-    margin-right: 10px;
+    margin-left: 20px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -1133,7 +1144,7 @@ button.active {
     background-color: #f1f1f1;
     color: black;
     align-self: flex-start;
-    margin-left: 20px;
+    margin-right: 10px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -3292,4 +3303,68 @@ hr {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 100%;
+}
+
+.button {
+    position: relative;
+    padding: 8px 16px;
+    background: transparent;
+    border: solid whitesmoke;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.button:active {
+    background: whitesmoke;
+    color: #121212;
+    border: solid whitesmoke;
+    outline: none;
+}
+
+.button:hover {
+    background: whitesmoke;
+    color: #121212;
+}
+
+.button__text:hover {
+    color: #121212;
+}
+
+.button__text {
+    font-family: 20px "Poppins", sans-serif;
+    color: #ffffff;
+    transition: all 0.2s;
+}
+
+.button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.button--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
 }

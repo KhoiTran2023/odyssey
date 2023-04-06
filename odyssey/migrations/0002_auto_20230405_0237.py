@@ -11,9 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='MailingList',
-        ),
         migrations.AlterField(
             model_name='order',
             name='depart_date',
