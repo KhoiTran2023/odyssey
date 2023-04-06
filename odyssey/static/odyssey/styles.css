@@ -328,17 +328,6 @@ video {
     background-size: cover;
 }
 
-@media (max-width: 500px) {
-    .parallaxIndex {
-        background-image: url("assets/homePageMobile.jpg");
-        min-height: 300px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-}
-
 .parallaxGradient {
     background-image: url("assets/space.jpg");
     min-height: 600px;
