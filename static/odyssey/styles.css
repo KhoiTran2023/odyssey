@@ -337,6 +337,8 @@ video {
     background-size: cover;
 }
 
+
+
 .parallaxGradient img {
     object-fit: cover;
     opacity: 0.6;
@@ -1730,6 +1732,12 @@ button.active {
     flex: 1 1 500px;
 }
 
+@media(min-width: 1700px) {
+    .booking-container .flex-child {
+        flex: 1 1 700px;
+    }
+}
+
 .sources-container .flex-child {
     flex: 1 1 300px;
     margin-left: 5%;
@@ -2650,10 +2658,11 @@ h4 {
     height: 500px;
     position: relative;
     align-items: center;
-    scrollbar-color:rgba(255, 255, 255, 0.05);
+    scrollbar-color: rgba(255, 255, 255, 0.05);
 }
 
-.tickets-container::-webkit-scrollbar-track, .messages-container::-webkit-scrollbar-track{
+.tickets-container::-webkit-scrollbar-track,
+.messages-container::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.05);
 }
 

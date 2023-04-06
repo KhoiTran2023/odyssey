@@ -337,6 +337,8 @@ video {
     background-size: cover;
 }
 
+
+
 .parallaxGradient img {
     object-fit: cover;
     opacity: 0.6;
