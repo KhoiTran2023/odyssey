@@ -1136,7 +1136,7 @@ button.active {
     background-color: #404040;
     color: whitesmoke;
     align-self: flex-end;
-    margin-left: 20px;
+    margin-right: 10px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -1144,7 +1144,7 @@ button.active {
     background-color: #f1f1f1;
     color: black;
     align-self: flex-start;
-    margin-right: 10px;
+    margin-left: 20px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -2661,6 +2661,10 @@ h4 {
     height: 500px;
     position: relative;
     align-items: center;
+}
+
+.tickets-container::-webkit-scrollbar-track, .messages-container::-webkit-scrollbar-track{
+    background-color: transparent;
 }
 
 @media (max-width: 600px) {
