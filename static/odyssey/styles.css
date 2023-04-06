@@ -2661,11 +2661,11 @@ h4 {
     height: 500px;
     position: relative;
     align-items: center;
-    scrollbar-color:transparent;
+    scrollbar-color:rgba(255, 255, 255, 0.05);
 }
 
 .tickets-container::-webkit-scrollbar-track, .messages-container::-webkit-scrollbar-track{
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 600px) {
