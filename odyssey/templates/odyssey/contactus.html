@@ -49,6 +49,9 @@
 {% else %}
 
 <div class="contactus-container">
+    {% if message_success %}
+    <div class="alert alert-success">{{message_success}}</div>
+    {% endif %}
     <form method = "POST" action = "{% url 'contact_send' %}">
         {% csrf_token %}
         <div class="row justify-content-center">
