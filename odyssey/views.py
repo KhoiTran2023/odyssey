@@ -87,9 +87,6 @@ def register_view(request):
             tickets_date_request = str(date.today())
         o = Order(tourChoice = request.POST.get("tourChoice"),account = request.user, payment = paymentChoice, depart_date =datetime.strptime(tickets_date_request, "%Y-%m-%d")+timedelta(days = 64),numTickets = request.POST.get("num_tickets"))
         o.save()
-        print(o)
-        messages.success(
-            request, "Congratulations! You've successfully booked!")
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'error'})
 
