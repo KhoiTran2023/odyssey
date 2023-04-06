@@ -2661,6 +2661,7 @@ h4 {
     height: 500px;
     position: relative;
     align-items: center;
+    scrollbar-color:transparent;
 }
 
 .tickets-container::-webkit-scrollbar-track, .messages-container::-webkit-scrollbar-track{
