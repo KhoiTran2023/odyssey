@@ -31,7 +31,7 @@
 
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark shadow-5-strong">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}">
+            <a class="navbar-brand" href="{% url 'index' %}" >
                 <img src="{% static 'odyssey/assets/odysseyLogo16.png' %}" class="logo" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-toggle"
@@ -54,6 +54,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'contact us' %}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'faq' %}">FAQs</a>
                     </li>
                     <li class="nav-item text-muted">
                         <a class="nav-link" href="{% url 'sources' %}">About</a>

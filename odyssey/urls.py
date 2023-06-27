@@ -22,4 +22,5 @@ urlpatterns = [
     path('add-payment', views.add_payment,name = "add_payment"),
     path('edit-profile', views.edit_profile, name = "edit_profile"),
     path('edit-payments', views.edit_payments, name = "edit_payments"),
+    path('faq', views.faq, name = "faq")
 ]

@@ -41,6 +41,9 @@ def contact_us_send(request):
         return render(request, "odyssey/contactus.html", context = {"message_success":"Message sent! Check your message center in your profile in 24 hours!"})
     return HttpResponseRedirect(reverse("contact_us"))
 
+def faq(request):
+    return render(request, "odyssey/faq.html")
+
 def error(request):
     return render(request, "odyssey/error.html")
 
