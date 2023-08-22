@@ -90,7 +90,7 @@ DATABASES = {
 """
 DATABASES = {
     'default': dj_database_url.config(  # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/TSA-Webmaster',
+        default='postgresql://postgres:postgres@localhost:5432/webmaster',
         conn_max_age=600
     )
 }
